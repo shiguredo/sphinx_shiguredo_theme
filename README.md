@@ -1,0 +1,1 @@
+# sphinx_shiguredo_theme
