@@ -1,0 +1,17 @@
+{
+  "name": "sphinx_shiguredo_theme",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "server": "serve ./example/build/html",
+    "build": "sass ./src/sass/theme.scss ./sphinx_shiguredo_theme/static/css/theme.css",
+    "fmt": "prettier --write ./src"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.0.0-beta1",
+    "normalize.css": "^8.0.1",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.5",
+    "serve": "^11.3.2"
+  }
+}
