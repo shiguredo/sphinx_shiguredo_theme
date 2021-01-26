@@ -1,2 +1,296 @@
 @import "../../node_modules/normalize.css/normalize";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+$shiguredo-color: #036eb7;
+// TODO: background 以外にも使うので変数名を変更する
+$root-background-color: #c1e4e9;
+$sidenavi-width: 22rem;
+$main-width: 60rem;
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $shiguredo-color;
+
+  &.headerlink {
+    margin-left: 1rem;
+  }
+}
+
+h1 {
+  border-bottom: 2px solid $shiguredo-color;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h2 {
+  border-bottom: 1px solid $shiguredo-color;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h4 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h5 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  line-height: 24px;
+}
+
+dl {
+  display: block;
+  margin: 1rem 0;
+
+  dt {
+  }
+
+  dd {
+    margin-left: 2rem;
+  }
+}
+
+table.docutils {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-striped;
+
+  th {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e1e4e5;
+    border-left: 1px solid #e1e4e5;
+  }
+
+  td {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e1e4e5;
+    border-left: 1px solid #e1e4e5;
+    text-align: left;
+  }
+}
+
+footer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  // TODO(yuito): 色を決める
+  color: gray;
+  border-top: 1px solid gray;
+
+  & > p {
+    padding: 0.5rem 0;
+  }
+}
+
+.table_wrapper {
+  @extend .table-responsive;
+}
+
+.highlight {
+  & > pre {
+    padding: 0.5rem;
+    background-color: #eeeeee;
+  }
+}
+
+#root {
+  display: flex;
+  min-height: 100%;
+  background-color: $root-background-color;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  padding: 0 2em;
+  width: $main-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid $shiguredo-color;
+  border-left: 1px solid $shiguredo-color;
+  background-color: $light;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.left-sidenavi {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  width: calc((100% - #{$main-width}) / 2);
+  min-width: $sidenavi-width;
+}
+
+.left-sidenavi-container {
+  box-sizing: border-box;
+  width: $sidenavi-width;
+  border-left: 1px solid $shiguredo-color;
+}
+
+.left-sidenavi-sticky,
+.right-sidenavi-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: min(100%, 100vh);
+  display: flex;
+  flex-direction: column;
+  background-color: $light;
+}
+
+.left-sidenavi-header {
+  background-color: $shiguredo-color;
+  padding: 1rem;
+
+  &-logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    & > img {
+      border-radius: 0.5rem;
+      background-color: $light;
+    }
+  }
+
+  &-brand {
+    display: flex;
+    justify-content: center;
+    & > a {
+      color: $light;
+      font-size: 1.25rem;
+    }
+  }
+
+  &-version {
+    display: flex;
+    justify-content: center;
+    & > span {
+      color: $light;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.left-sidenavi-contents {
+  overflow-y: auto;
+
+  ul {
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    & > li {
+      & > a {
+        box-sizing: border-box;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        padding: 0.3rem 1.5rem;
+
+        &:hover {
+          // TODO: 色を決める
+          background-color: #a0d8ef;
+        }
+
+        &.current {
+          // TODO: 現在表示厨の toctree のスタイルを調整する
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.right-sidenavi {
+  box-sizing: border-box;
+  width: $sidenavi-width;
+  border-right: 1px solid $shiguredo-color;
+}
+
+.right-sidenavi-header {
+  padding: 0.3rem 1rem;
+  font-weight: 700;
+}
+
+.right-sidenavi-contents {
+  & > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & > li {
+      & > a:first-child {
+        display: none;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0 1.5rem;
+
+        & > li {
+          & > a {
+            box-sizing: border-box;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            padding: 0.3rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: calc(#{$main-width} + #{$sidenavi-width} + #{$sidenavi-width})) {
+  .left-sidenavi {
+    width: calc(
+      ((100% - #{$main-width} - #{$sidenavi-width}) / 2) + #{$sidenavi-width}
+    );
+  }
+
+  .right-sidenavi {
+    display: none;
+  }
+}
+
+@media (max-width: calc(#{$main-width} + #{$sidenavi-width})) {
+  .main {
+    justify-content: center;
+  }
+
+  .left-sidenavi,
+  .right-sidenavi {
+    display: none;
+  }
+}

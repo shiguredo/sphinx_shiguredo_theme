@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+  {%- set url_root = pathto('', 1) %} {%- if url_root == '#' %}{% set url_root =
+  '' %}{% endif %} {%- macro css() %}
+  <link
+    rel="stylesheet"
+    href="{{ pathto('_static/pygments.css', 1) }}"
+    type="text/css"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ pathto('_static/basic.css', 1) }}"
+    type="text/css"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ pathto('_static/' + style, 1)|e }}"
+    type="text/css"
+  />
+  {%- for css in css_files %} {%- if css|attr("filename") %} {{ css_tag(css) }}
+  {%- else %}
+  <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+  {%- endif %} {%- endfor %} {%- endmacro %} {%- macro script() %}
+  <script
+    id="documentation_options"
+    data-url_root="{{ url_root }}"
+    src="{{ pathto('_static/documentation_options.js', 1) }}"
+  ></script>
+  {%- for js in script_files %} {{ js_tag(js) }} {%- endfor %} {%- endmacro %}
+
+  <head>
+    {%- if not html5_doctype and not skip_ua_compatible %}
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    {%- endif %} {%- if use_meta_charset or html5_doctype %}
+    <meta charset="{{ encoding }}" />
+    {%- else %}
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset={{ encoding }}"
+    />
+    {%- endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{- metatags }} {%- block htmltitle %}
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {%- endblock %} {%- block css %} {{- css() }} {%- endblock %} {%- if not
+    embedded %} {%- block scripts %} {{- script() }} {%- endblock %} {%- if
+    pageurl %}
+    <link rel="canonical" href="{{ pageurl|e }}" />
+    {%- endif %} {%- if use_opensearch %}
+    <link
+      rel="search"
+      type="application/opensearchdescription+xml"
+      title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
+      href="{{ pathto('_static/opensearch.xml', 1) }}"
+    />
+    {%- endif %} {%- if favicon %}
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1)|e }}" />
+    {%- endif %} {%- endif %} {%- block linktags %} {%- if hasdoc('about') %}
+    <link
+      rel="author"
+      title="{{ _('About these documents') }}"
+      href="{{ pathto('about') }}"
+    />
+    {%- endif %} {%- if hasdoc('genindex') %}
+    <link
+      rel="index"
+      title="{{ _('Index') }}"
+      href="{{ pathto('genindex') }}"
+    />
+    {%- endif %} {%- if hasdoc('search') %}
+    <link
+      rel="search"
+      title="{{ _('Search') }}"
+      href="{{ pathto('search') }}"
+    />
+    {%- endif %} {%- if hasdoc('copyright') %}
+    <link
+      rel="copyright"
+      title="{{ _('Copyright') }}"
+      href="{{ pathto('copyright') }}"
+    />
+    {%- endif %} {%- if next %}
+    <link
+      rel="next"
+      title="{{ next.title|striptags|e }}"
+      href="{{ next.link|e }}"
+    />
+    {%- endif %} {%- if prev %}
+    <link
+      rel="prev"
+      title="{{ prev.title|striptags|e }}"
+      href="{{ prev.link|e }}"
+    />
+    {%- endif %} {%- endblock %} {%- block extrahead %} {% endblock %}
+  </head>
+  <body>
+    <div id="root">
+      {% block left_sidenavi %}
+      <aside class="left-sidenavi">
+        <div class="left-sidenavi-container">
+          <div class="left-sidenavi-sticky">
+            <div class="left-sidenavi-header">
+              <div class="left-sidenavi-header-logo">
+                {%- if logo %}
+                <img
+                  class="logo"
+                  src="{{ pathto('_static/' + logo, 1)|e }}"
+                  alt="Logo"
+                />
+                {%- endif %}
+              </div>
+              <div class="left-sidenavi-header-brand">
+                <a href="#">{{ project }}</a>
+              </div>
+              <div class="left-sidenavi-header-version">
+                <span>{{ version }}</span>
+              </div>
+            </div>
+            <div class="left-sidenavi-contents">{{ toctree(maxdepth=1) }}</div>
+          </div>
+        </div>
+      </aside>
+      {% endblock %}
+
+      <main class="main">
+        <div class="content">
+          {% block body %} {% endblock %} {%- block footer %}
+          <footer>
+            {%- if show_copyright %}
+            <div>
+              {%- if hasdoc('copyright') %}
+              <p>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}.</p>
+              {%- else %} &#169; Copyright {{ copyright }}. {%- endif %}
+            </div>
+            {%- endif %} {%- if last_updated %}
+            <p>Last updated on {{ last_updated }}.</p>
+            {%- endif %} {%- if show_sphinx %}
+            <p>
+              Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{
+              sphinx_version }}.
+            </p>
+            {%- endif %}
+          </footer>
+          {%- endblock %}
+        </div>
+
+        <aside class="right-sidenavi">
+          <div class="right-sidenavi-sticky">
+            <div class="right-sidenavi-header">
+              <span>コンテンツ</span>
+            </div>
+            <div class="right-sidenavi-contents">{{ toc }}</div>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
