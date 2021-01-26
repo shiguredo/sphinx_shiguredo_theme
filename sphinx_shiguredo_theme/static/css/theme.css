@@ -11092,7 +11092,6 @@ footer > p {
   position: sticky;
   top: 0;
   height: 100vh;
-  height: min(100%, 100vh);
   display: flex;
   flex-direction: column;
   background-color: #f8f9fa;
