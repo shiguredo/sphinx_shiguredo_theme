@@ -244,6 +244,8 @@ footer {
 }
 
 .right-sidenavi-contents {
+  overflow-y: auto;
+
   & > ul {
     margin: 0;
     padding: 0;

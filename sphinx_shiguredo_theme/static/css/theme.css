@@ -11163,6 +11163,9 @@ footer > p {
   font-weight: 700;
 }
 
+.right-sidenavi-contents {
+  overflow-y: auto;
+}
 .right-sidenavi-contents > ul {
   margin: 0;
   padding: 0;
