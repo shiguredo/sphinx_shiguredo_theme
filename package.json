@@ -5,7 +5,7 @@
   "scripts": {
     "server": "serve ./example/build/html",
     "build": "sass ./src/sass/theme.scss ./sphinx_shiguredo_theme/static/css/theme.css",
-    "fmt": "prettier --write ./src"
+    "fmt": "prettier --write ./src && prettier --write ./sphinx_shiguredo_theme/*.html"
   },
   "devDependencies": {
     "bootstrap": "^5.0.0-beta1",
