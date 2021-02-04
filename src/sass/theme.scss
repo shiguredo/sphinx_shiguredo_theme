@@ -105,6 +105,34 @@ footer {
   }
 }
 
+.navbar {
+  display: none;
+  background-color: $shiguredo-color;
+  color: white;
+
+  ul {
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    & > li {
+      & > a {
+        color: white;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 0.3rem 1rem;
+
+        &.current {
+          // TODO: 現在表示厨の toctree のスタイルを調整する
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
 .table_wrapper {
   @extend .table-responsive;
 }
@@ -113,6 +141,31 @@ footer {
   & > pre {
     padding: 0.5rem;
     background-color: #eeeeee;
+  }
+}
+
+#search-results {
+  & > .search-summary {
+    padding: 1rem 0;
+    border-bottom: 1px solid gray;
+  }
+
+  & > ul.search {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-image: none;
+
+    & > li {
+      background-image: none;
+      padding: 2rem 0;
+      box-sizing: border-box;
+      border-bottom: 1px solid gray;
+
+      & > .context {
+        margin: 1rem 0 0 0;
+      }
+    }
   }
 }
 
@@ -174,6 +227,7 @@ footer {
     display: flex;
     justify-content: center;
     padding-bottom: 0.5rem;
+
     & > img {
       border-radius: 0.5rem;
       background-color: $light;
@@ -183,6 +237,8 @@ footer {
   &-brand {
     display: flex;
     justify-content: center;
+    padding-bottom: 0.5rem;
+
     & > a {
       color: $light;
       font-size: 1.25rem;
@@ -192,6 +248,8 @@ footer {
   &-version {
     display: flex;
     justify-content: center;
+    padding-bottom: 0.5rem;
+
     & > span {
       color: $light;
       font-size: 1.25rem;
@@ -287,11 +345,20 @@ footer {
 
 @media (max-width: calc(#{$main-width} + #{$sidenavi-width})) {
   .main {
+    margin-top: 3.5rem;
     justify-content: center;
+
+    .content {
+      width: 100%;
+    }
   }
 
   .left-sidenavi,
   .right-sidenavi {
     display: none;
+  }
+
+  .navbar {
+    display: block;
   }
 }

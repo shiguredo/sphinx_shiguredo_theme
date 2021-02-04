@@ -110,10 +110,33 @@
                 {%- endif %}
               </div>
               <div class="left-sidenavi-header-brand">
-                <a href="#">{{ project }}</a>
+                <a href="/">{{ project }}</a>
               </div>
               <div class="left-sidenavi-header-version">
                 <span>{{ version }}</span>
+              </div>
+
+              <div class="left-sidenavi-header-search">
+                <form
+                  class="row search"
+                  action="{{ pathto('search') }}"
+                  method="GET"
+                >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      placeholder="search"
+                      aria-labelledby="searchlabel"
+                      name="q"
+                    />
+                    <input
+                      type="submit"
+                      class="btn btn-sm btn-dark"
+                      value="{{ _('Go') }}"
+                    />
+                  </div>
+                </form>
               </div>
             </div>
             <div class="left-sidenavi-contents">{{ toctree(maxdepth=1) }}</div>
@@ -122,7 +145,19 @@
       </aside>
       {% endblock %}
 
-      <main class="main">
+      <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">{{ project }}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            {{ toctree(maxdepth=1) }}
+          </div>
+        </div>
+      </nav>
+
+      <main class="main" role="main">
         <div class="content">
           {% block body %} {% endblock %} {%- block footer %}
           <footer>
