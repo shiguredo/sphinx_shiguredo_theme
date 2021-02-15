@@ -10977,29 +10977,39 @@ a.headerlink {
 }
 
 h1, .h1 {
-  border-bottom: 2px solid #036eb7;
+  font-size: 2rem;
+  border-bottom: 3px solid #036eb7;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 }
 
 h2, .h2 {
-  border-bottom: 1px solid #036eb7;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #036eb7;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 }
 
 h3, .h3 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #036eb7;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 }
 
 h4, .h4 {
+  font-size: 1.25rem;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 }
 
 h5, .h5 {
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 }
 
