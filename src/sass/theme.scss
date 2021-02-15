@@ -275,6 +275,12 @@ footer {
 
 .left-sidenavi-contents {
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ul {
     margin: 0;

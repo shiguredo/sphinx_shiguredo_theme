@@ -11189,6 +11189,11 @@ footer > p {
 
 .left-sidenavi-contents {
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.left-sidenavi-contents::-webkit-scrollbar {
+  display: none;
 }
 .left-sidenavi-contents ul {
   margin: 0;
