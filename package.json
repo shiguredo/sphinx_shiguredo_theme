@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "server": "serve ./example/build/html",
-    "build": "sass ./src/sass/theme.scss ./sphinx_shiguredo_theme/static/css/theme.css",
+    "build": "yarn _build/sass && yarn _build/copyfile",
+    "_build/sass": "sass ./src/sass/theme.scss ./sphinx_shiguredo_theme/static/css/theme.css",
+    "_build/copyfile": "node -e \"require('fs').copyFileSync('./node_modules/bootstrap/dist/js/bootstrap.min.js', './sphinx_shiguredo_theme/static/js/bootstrap.min.js')\"",
     "fmt": "prettier --write ./src && prettier --write ./sphinx_shiguredo_theme/*.html"
   },
   "devDependencies": {
