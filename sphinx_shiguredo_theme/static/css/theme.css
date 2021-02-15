@@ -11030,6 +11030,11 @@ table.docutils td {
   text-align: left;
 }
 
+code.docutils {
+  padding: 0.25rem;
+  border: 1px solid #e1e4e5;
+}
+
 footer {
   margin-top: 2rem;
   display: flex;
