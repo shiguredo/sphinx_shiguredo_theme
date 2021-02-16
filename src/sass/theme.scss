@@ -2,7 +2,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 $shiguredo-color: #036eb7;
-// TODO: background 以外にも使うので変数名を変更する
+$active-color: #274a78;
+$caption-color: #c0c6c9;
 $root-background-color: #c1e4e9;
 $sidenavi-width: 22rem;
 $main-width: 60rem;
@@ -160,6 +161,12 @@ footer {
   }
 }
 
+.caption {
+  color: $caption-color;
+  margin: 1.5rem 0 0 1rem;
+  font-weight: 900;
+}
+
 #search-results {
   & > .search-summary {
     padding: 1rem 0;
@@ -277,6 +284,7 @@ footer {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 0.5rem 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -284,7 +292,7 @@ footer {
 
   ul {
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -295,15 +303,15 @@ footer {
         display: inline-block;
         height: 100%;
         width: 100%;
-        padding: 0.3rem 1.5rem;
+        padding: 0.1rem 1rem;
 
         &:hover {
-          // TODO: 色を決める
-          background-color: #a0d8ef;
+          font-weight: 700;
+          text-decoration: underline $shiguredo-color;
         }
 
         &.current {
-          // TODO: 現在表示厨の toctree のスタイルを調整する
+          background-color: $caption-color;
           font-weight: 700;
         }
       }
@@ -319,6 +327,7 @@ footer {
 
 .right-sidenavi-header {
   padding: 0.3rem 1rem;
+  color: $caption-color;
   font-weight: 700;
 }
 
@@ -346,6 +355,11 @@ footer {
             height: 100%;
             width: 100%;
             padding: 0.3rem 0;
+
+            &:hover {
+              font-weight: 700;
+              text-decoration: underline $shiguredo-color;
+            }
           }
         }
       }

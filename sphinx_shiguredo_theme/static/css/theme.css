@@ -11085,6 +11085,12 @@ footer > p {
   background-color: #eeeeee;
 }
 
+.caption {
+  color: #c0c6c9;
+  margin: 1.5rem 0 0 1rem;
+  font-weight: 900;
+}
+
 #search-results > .search-summary {
   padding: 1rem 0;
   border-bottom: 1px solid gray;
@@ -11191,13 +11197,14 @@ footer > p {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 0.5rem 0;
 }
 .left-sidenavi-contents::-webkit-scrollbar {
   display: none;
 }
 .left-sidenavi-contents ul {
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -11207,12 +11214,14 @@ footer > p {
   display: inline-block;
   height: 100%;
   width: 100%;
-  padding: 0.3rem 1.5rem;
+  padding: 0.1rem 1rem;
 }
 .left-sidenavi-contents ul > li > a:hover {
-  background-color: #a0d8ef;
+  font-weight: 700;
+  text-decoration: underline #036eb7;
 }
 .left-sidenavi-contents ul > li > a.current {
+  background-color: #c0c6c9;
   font-weight: 700;
 }
 
@@ -11224,6 +11233,7 @@ footer > p {
 
 .right-sidenavi-header {
   padding: 0.3rem 1rem;
+  color: #c0c6c9;
   font-weight: 700;
 }
 
@@ -11248,6 +11258,10 @@ footer > p {
   height: 100%;
   width: 100%;
   padding: 0.3rem 0;
+}
+.right-sidenavi-contents > ul > li ul > li > a:hover {
+  font-weight: 700;
+  text-decoration: underline #036eb7;
 }
 
 @media (max-width: calc(60rem + 22rem + 22rem)) {
