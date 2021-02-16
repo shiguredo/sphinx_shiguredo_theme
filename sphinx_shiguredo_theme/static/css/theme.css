@@ -11091,6 +11091,42 @@ footer > p {
   font-weight: 900;
 }
 
+.admonition {
+  background-color: rgba(0, 149, 217, 0.1);
+  border: 1px solid #0095D9;
+  padding: 0 !important;
+  border-radius: 0.25rem;
+}
+.admonition > .admonition-title {
+  background-color: #0095D9;
+  color: #f8f9fa;
+}
+.admonition > p {
+  margin: 0;
+  padding: 0.5rem;
+}
+.admonition.attention, .admonition.caution, .admonition.warning {
+  background-color: rgba(240, 131, 0, 0.1);
+  border: 1px solid #f08300;
+}
+.admonition.attention > .admonition-title, .admonition.caution > .admonition-title, .admonition.warning > .admonition-title {
+  background-color: #f08300;
+}
+.admonition.danger, .admonition.error {
+  background-color: rgba(230, 0, 51, 0.1);
+  border: 1px solid #e60033;
+}
+.admonition.danger > .admonition-title, .admonition.error > .admonition-title {
+  background-color: #e60033;
+}
+.admonition.hint, .admonition.important, .admonition.tip {
+  background-color: rgba(62, 179, 112, 0.1);
+  border: 1px solid #3eb370;
+}
+.admonition.hint > .admonition-title, .admonition.important > .admonition-title, .admonition.tip > .admonition-title {
+  background-color: #3eb370;
+}
+
 #search-results > .search-summary {
   padding: 1rem 0;
   border-bottom: 1px solid gray;
@@ -11250,7 +11286,7 @@ footer > p {
 }
 .right-sidenavi-contents > ul > li ul {
   list-style: none;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 }
 .right-sidenavi-contents > ul > li ul > li > a {
   box-sizing: border-box;
