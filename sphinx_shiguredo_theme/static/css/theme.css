@@ -11275,10 +11275,15 @@ footer > p {
 
 .right-sidenavi-contents {
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.right-sidenavi-contents::-webkit-scrollbar {
+  display: none;
 }
 .right-sidenavi-contents > ul {
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
   list-style: none;
 }
 .right-sidenavi-contents > ul > li > a:first-child {
@@ -11286,7 +11291,7 @@ footer > p {
 }
 .right-sidenavi-contents > ul > li ul {
   list-style: none;
-  padding: 0 1rem;
+  padding: 0;
 }
 .right-sidenavi-contents > ul > li ul > li > a {
   box-sizing: border-box;
@@ -11298,6 +11303,12 @@ footer > p {
 .right-sidenavi-contents > ul > li ul > li > a:hover {
   font-weight: 700;
   text-decoration: underline #036eb7;
+}
+.right-sidenavi-contents > ul > li ul > li > a.current {
+  font-weight: 700;
+}
+.right-sidenavi-contents > ul > li ul > li ul {
+  padding-left: 1rem;
 }
 
 @media (max-width: calc(60rem + 22rem + 22rem)) {

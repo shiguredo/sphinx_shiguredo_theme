@@ -3,8 +3,7 @@
   {%- set url_root = pathto('', 1) %} {%- if url_root == '#' %}{% set url_root =
   '' %}{% endif %} {%- macro css() %}
   <link
-    rel="stylesheet"
-    href="{{ pathto('_static/pygments.css', 1) }}"
+    rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}"
     type="text/css"
   />
   <link
@@ -191,5 +190,6 @@
         </aside>
       </main>
     </div>
+    <script src="{{ pathto('_static/js/navi.js', 1) }}"></script>
   </body>
 </html>
