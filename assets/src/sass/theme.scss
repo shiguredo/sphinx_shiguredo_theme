@@ -381,10 +381,16 @@ footer {
 
 .right-sidenavi-contents {
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   & > ul {
     margin: 0;
-    padding: 0;
+    padding: 0 1rem;
     list-style: none;
 
     & > li {
@@ -394,9 +400,10 @@ footer {
 
       ul {
         list-style: none;
-        padding: 0 1rem;
+        padding: 0;
 
         & > li {
+
           & > a {
             box-sizing: border-box;
             display: inline-block;
@@ -408,6 +415,14 @@ footer {
               font-weight: 700;
               text-decoration: underline $shiguredo-color;
             }
+
+            &.current {
+              font-weight: 700;
+            }
+          }
+
+          & ul {
+            padding-left: 1rem;
           }
         }
       }

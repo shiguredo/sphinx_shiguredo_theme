@@ -3,17 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server": "serve ./example/build/html",
-    "build": "yarn _build/sass && yarn _build/copyfile",
-    "_build/sass": "sass ./src/sass/theme.scss ./sphinx_shiguredo_theme/static/css/theme.css",
-    "_build/copyfile": "node -e \"require('fs').copyFileSync('./node_modules/bootstrap/dist/js/bootstrap.min.js', './sphinx_shiguredo_theme/static/js/bootstrap.min.js')\"",
+    "build": "yarn _build/sass && yarn _build/typescript",
+    "_build/sass": "npx sass ./src/sass/theme.scss ../sphinx_shiguredo_theme/static/css/theme.css",
+    "_build/typescript": "npx rollup -c",
     "fmt": "prettier --write ./src && prettier --write ./sphinx_shiguredo_theme/*.html"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
     "bootstrap": "^5.0.0-beta1",
     "normalize.css": "^8.0.1",
     "prettier": "^2.2.1",
+    "rollup": "^2.39.0",
+    "rollup-plugin-typescript2": "^0.29.0",
     "sass": "^1.32.5",
-    "serve": "^11.3.2"
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
   }
 }
