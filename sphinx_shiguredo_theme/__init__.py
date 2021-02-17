@@ -4,10 +4,16 @@ from sphinx.transforms.post_transforms import SphinxPostTransform
 
 def on_doctree_resolved(app, doctree, docname):
     from docutils import nodes
+    # create same value list
+    values = [node.children[0].astext() for node in doctree.traverse(nodes.section)]
+    same_value_counter = { v: 0 for v in set([v for v in values if 1 < values.count(v)])}
     # add hash-based node-ID to sections
     mapping = {}
     for node in doctree.traverse(nodes.section):
         new_id = node.children[0].astext()
+        if new_id in same_value_counter.keys():
+            same_value_counter[new_id] += 1
+            new_id += "-" + str(same_value_counter[new_id])
         for node_id in node['ids']:
             mapping[node_id] = new_id
         node['ids'].insert(0, new_id)
@@ -19,8 +25,11 @@ def on_doctree_resolved(app, doctree, docname):
     # use hash-based node-IDs at toctrees
     for _, toctree in app.env.tocs.items():
         for node in toctree.traverse(nodes.reference):
-            if node.get('internal') and node.get('anchorname'):
-                node['anchorname'] = '#' + node.astext()
+            anchorname = node.get('anchorname')
+            if node.get('internal') and anchorname:
+                new_anchorname = mapping.get(anchorname.replace("#", ""))
+                if new_anchorname:
+                    node['anchorname'] = '#' + new_anchorname
 
 class TableWrapperTransform(SphinxPostTransform):
     builder = ('html',)
