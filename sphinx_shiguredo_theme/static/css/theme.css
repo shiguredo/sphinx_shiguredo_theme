@@ -2297,10 +2297,10 @@ progress {
   padding: 0.25rem 0.25rem;
 }
 
-.table-bordered > :not(caption) > *, table.docutils > :not(caption) > * {
+.table-bordered > :not(caption) > * {
   border-width: 1px 0;
 }
-.table-bordered > :not(caption) > * > *, table.docutils > :not(caption) > * > * {
+.table-bordered > :not(caption) > * > * {
   border-width: 0 1px;
 }
 
@@ -11027,16 +11027,17 @@ dl dd {
 }
 
 table.docutils th {
+  background-color: #036eb7;
+  color: #f8f9fa;
   white-space: nowrap;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #e1e4e5;
-  border-left: 1px solid #e1e4e5;
+  border: 1px solid black;
+  border-bottom-color: black !important;
 }
 table.docutils td {
   white-space: nowrap;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #e1e4e5;
-  border-left: 1px solid #e1e4e5;
+  border: 1px solid black;
   text-align: left;
 }
 
@@ -11081,6 +11082,10 @@ footer > p {
 }
 .navbar ul > li > a.current {
   font-weight: 700;
+}
+
+.table_wrapper {
+  padding: 0;
 }
 
 .highlight > pre {

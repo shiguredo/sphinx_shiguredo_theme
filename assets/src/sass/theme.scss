@@ -83,21 +83,21 @@ dl {
 
 table.docutils {
   @extend .table;
-  @extend .table-bordered;
   @extend .table-striped;
 
   th {
+    background-color: $shiguredo-color;
+    color: $light;
     white-space: nowrap;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #e1e4e5;
-    border-left: 1px solid #e1e4e5;
+    border: 1px solid black;
+    border-bottom-color: black !important;
   }
 
   td {
     white-space: nowrap;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #e1e4e5;
-    border-left: 1px solid #e1e4e5;
+    border: 1px solid black;
     text-align: left;
   }
 }
@@ -156,6 +156,8 @@ footer {
 
 .table_wrapper {
   @extend .table-responsive;
+
+  padding: 0;
 }
 
 .highlight {
