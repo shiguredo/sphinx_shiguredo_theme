@@ -127,6 +127,10 @@ footer {
   background-color: $shiguredo-color;
   color: white;
 
+  .navbar-collapse {
+    overflow-y: auto;
+  }
+
   ul {
     margin: 0;
     padding: 0.5rem 0;
@@ -142,7 +146,7 @@ footer {
         padding: 0.3rem 1rem;
 
         &.current {
-          // TODO: 現在表示厨の toctree のスタイルを調整する
+          // TODO: 現在表示中の toctree のスタイルを調整する
           font-weight: 700;
         }
       }

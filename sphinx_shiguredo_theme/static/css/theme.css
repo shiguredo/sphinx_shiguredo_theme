@@ -11063,6 +11063,9 @@ footer > p {
   background-color: #036eb7;
   color: white;
 }
+.navbar .navbar-collapse {
+  overflow-y: auto;
+}
 .navbar ul {
   margin: 0;
   padding: 0.5rem 0;
