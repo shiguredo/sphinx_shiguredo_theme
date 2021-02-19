@@ -2,8 +2,9 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 $shiguredo-color: #036eb7;
-$active-color: #274a78;
-$caption-color: #c0c6c9;
+$active-color: #01304F;
+$current-background-color: #e5e4e6;
+$caption-color: #9fa0a0;
 $root-background-color: #c1e4e9;
 $sidenavi-width: 22rem;
 $main-width: 60rem;
@@ -340,7 +341,7 @@ footer {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 1rem 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -362,13 +363,12 @@ footer {
         padding: 0.1rem 1rem;
 
         &:hover {
-          font-weight: 700;
-          text-decoration: underline $shiguredo-color;
+          color: $active-color;
+          text-decoration: underline $active-color;
         }
 
         &.current {
-          background-color: $caption-color;
-          font-weight: 700;
+          background-color: $current-background-color;
         }
       }
     }
@@ -391,6 +391,7 @@ footer {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 0.5rem 0 1rem 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -420,12 +421,12 @@ footer {
             padding: 0.3rem 0;
 
             &:hover {
-              font-weight: 700;
-              text-decoration: underline $shiguredo-color;
+              color: $active-color;
+              text-decoration: underline $active-color;
             }
 
             &.current {
-              font-weight: 700;
+              background-color: $current-background-color;
             }
           }
 
@@ -451,20 +452,9 @@ footer {
 }
 
 @media (max-width: calc(#{$main-width} + #{$sidenavi-width})) {
-  $ajusted-sidenavi-width: calc(#{$sidenavi-width} - 5rem);
-
   .main {
     .content {
-      width: calc(100vw - #{$ajusted-sidenavi-width});
-    }
-  }
-
-  .left-sidenavi {
-    width: #{$ajusted-sidenavi-width};
-    min-width: #{$ajusted-sidenavi-width};
-
-    .left-sidenavi-container {
-      width: #{$ajusted-sidenavi-width};
+      width: calc(100vw - #{$sidenavi-width});
     }
   }
 }
