@@ -158,26 +158,29 @@
 
       <main class="main" role="main">
         <div class="content">
-          {% block body %} {% endblock %} {%- block footer %}
+          {% block body %} {% endblock %}
+          {%- block footer %}
           <footer>
             {%- if show_copyright %}
-            <div>
               {%- if hasdoc('copyright') %}
-              <p>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}.</p>
-              {%- else %} &#169; Copyright {{ copyright }}. {%- endif %}
-            </div>
-            {%- endif %} {%- if last_updated %}
-            <p>Last updated on {{ last_updated }}.</p>
-            {%- endif %} {%- if show_sphinx %}
-            <p>
-              Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{
-              sphinx_version }}.
-            </p>
+              <span>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}</span>
+              {%- else %}
+              <span>&#169; Copyright {{ copyright }}</span>
+              {%- endif %}
+            {%- endif %}
+
+            {%- if last_updated %}
+            <span>Last updated on {{ last_updated }}</span>
+            {%- endif %}
+
+            {%- if show_sphinx %}
+            <span>Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}</span>
             {%- endif %}
           </footer>
           {%- endblock %}
         </div>
 
+        {% block right_sidenavi %}
         <aside class="right-sidenavi">
           <div class="right-sidenavi-sticky">
             <div class="right-sidenavi-contents">
@@ -188,6 +191,7 @@
             </div>
           </div>
         </aside>
+        {%- endblock %}
       </main>
     </div>
     <script src="{{ pathto('_static/js/navi.js', 1) }}"></script>

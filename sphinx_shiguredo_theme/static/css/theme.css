@@ -11050,13 +11050,18 @@ code.docutils {
 footer {
   margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 0;
-  color: gray;
+  color: #9fa0a0;
   border-top: 1px solid gray;
 }
-footer > p {
-  padding: 0.5rem 0;
+footer > span {
+  margin-left: 0.5rem;
+}
+footer > span:first-child {
+  margin-left: 0;
 }
 
 .navbar {

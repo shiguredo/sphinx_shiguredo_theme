@@ -112,14 +112,19 @@ code.docutils {
 footer {
   margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 0;
-  // TODO(yuito): 色を決める
-  color: gray;
+  color: $caption-color;
   border-top: 1px solid gray;
 
-  & > p {
-    padding: 0.5rem 0;
+  & > span {
+    margin-left: 0.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 
