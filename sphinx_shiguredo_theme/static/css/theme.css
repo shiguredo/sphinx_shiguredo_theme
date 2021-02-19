@@ -11329,6 +11329,19 @@ footer > p {
   }
 }
 @media (max-width: calc(60rem + 22rem)) {
+  .main .content {
+    width: calc(100vw - calc(22rem - 5rem));
+  }
+
+  .left-sidenavi {
+    width: calc(22rem - 5rem);
+    min-width: calc(22rem - 5rem);
+  }
+  .left-sidenavi .left-sidenavi-container {
+    width: calc(22rem - 5rem);
+  }
+}
+@media (max-width: 992px) {
   .main {
     margin-top: 3.5rem;
     justify-content: center;

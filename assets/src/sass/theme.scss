@@ -449,6 +449,25 @@ footer {
 }
 
 @media (max-width: calc(#{$main-width} + #{$sidenavi-width})) {
+  $ajusted-sidenavi-width: calc(#{$sidenavi-width} - 5rem);
+
+  .main {
+    .content {
+      width: calc(100vw - #{$ajusted-sidenavi-width});
+    }
+  }
+
+  .left-sidenavi {
+    width: #{$ajusted-sidenavi-width};
+    min-width: #{$ajusted-sidenavi-width};
+
+    .left-sidenavi-container {
+      width: #{$ajusted-sidenavi-width};
+    }
+  }
+}
+
+@media (max-width: 992px) {
   .main {
     margin-top: 3.5rem;
     justify-content: center;
