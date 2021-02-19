@@ -11065,6 +11065,8 @@ footer > p {
   color: white;
 }
 .navbar .navbar-collapse {
+  margin-top: 1rem;
+  height: 90vh;
   overflow-y: auto;
 }
 .navbar ul {
