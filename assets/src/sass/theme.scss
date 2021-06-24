@@ -311,11 +311,14 @@ footer {
   &-logo {
     display: flex;
     justify-content: center;
-    padding-bottom: 0.5rem;
 
-    & > img {
-      border-radius: 0.5rem;
-      background-color: $light;
+    & > div {
+      padding-bottom: 0.5rem;
+
+      & > img {
+        border-radius: 0.5rem;
+        background-color: $light;
+      }
     }
   }
 
@@ -327,6 +330,10 @@ footer {
     & > a {
       color: $light;
       font-size: 1.25rem;
+
+      &:hover {
+        background-color: rgba($light, 0.1);
+      }
     }
   }
 

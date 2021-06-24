@@ -101,11 +101,9 @@
             <div class="left-sidenavi-header">
               <div class="left-sidenavi-header-logo">
                 {%- if logo %}
-                <img
-                  class="logo"
-                  src="{{ pathto('_static/' + logo, 1)|e }}"
-                  alt="Logo"
-                />
+                <div>
+                  <img class="logo" src="{{ pathto('_static/' + logo, 1)|e }}" alt="Logo" />
+                </div>
                 {%- endif %}
               </div>
               <div class="left-sidenavi-header-brand">
