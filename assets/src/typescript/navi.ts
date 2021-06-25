@@ -13,11 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollTarget.scrollTo(0, currentTop - scrollTargetTop);
 });
 
-// right navi
-function f() {
-
-}
-
 window.addEventListener("scroll", (_) =>{
   const sections = document.querySelectorAll(".section");
   // 現在のスクロール上部にある section を探す
