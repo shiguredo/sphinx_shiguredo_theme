@@ -185,6 +185,13 @@ footer {
   }
 }
 
+.code-block-caption {
+  padding: 0!important;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: unset!important;
+}
+
 .admonition {
   $admonition-color: #0095D9;
   background-color: rgba($admonition-color, 0.1);

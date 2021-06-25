@@ -11236,6 +11236,13 @@ footer > span:first-child {
   margin-top: 0;
 }
 
+.code-block-caption {
+  padding: 0 !important;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: unset !important;
+}
+
 .admonition {
   background-color: rgba(0, 149, 217, 0.1);
   border: 1px solid #0095D9;
