@@ -3,8 +3,8 @@
 
 $shiguredo-color: #036eb7;
 $active-color: #01304F;
-$current-background-color: #e5e4e6;
-$caption-color: #9fa0a0;
+$current-background-color: #eeeeee;
+$caption-color: #343131;
 $root-background-color: #c1e4e9;
 $sidenavi-width: 22rem;
 $main-width: 60rem;
@@ -88,7 +88,7 @@ table.docutils {
 
   th {
     background-color: $shiguredo-color;
-    color: $light;
+    color: $white;
     white-space: nowrap;
     padding: 0.5rem 1rem;
     border: 1px solid black;
@@ -177,8 +177,12 @@ footer {
 
 .caption {
   color: $caption-color;
-  margin: 1.5rem 0 0 1rem;
+  margin: 1.5rem 0 0.5rem 1rem;
   font-weight: 900;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .admonition {
@@ -190,7 +194,7 @@ footer {
 
   & > .admonition-title {
     background-color: $admonition-color;
-    color: $light;
+    color: $white;
   }
 
   & > p {
@@ -273,7 +277,7 @@ footer {
   justify-content: space-between;
   border-right: 1px solid $shiguredo-color;
   border-left: 1px solid $shiguredo-color;
-  background-color: $light;
+  background-color: $white;
 }
 
 .section {
@@ -301,7 +305,7 @@ footer {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: $light;
+  background-color: $white;
 }
 
 .left-sidenavi-header {
@@ -317,7 +321,7 @@ footer {
 
       & > img {
         border-radius: 0.5rem;
-        background-color: $light;
+        background-color: $white;
       }
     }
   }
@@ -328,11 +332,11 @@ footer {
     padding-bottom: 0.5rem;
 
     & > a {
-      color: $light;
+      color: $white;
       font-size: 1.25rem;
 
       &:hover {
-        background-color: rgba($light, 0.1);
+        background-color: rgba($white, 0.1);
       }
     }
   }
@@ -343,7 +347,7 @@ footer {
     padding-bottom: 0.5rem;
 
     & > span {
-      color: $light;
+      color: $white;
       font-size: 1.25rem;
     }
   }
@@ -357,6 +361,34 @@ footer {
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  .toctree-l1 {
+    &.current {
+      background-color: $current-background-color;
+    }
+    & > a {
+      font-weight: 700;
+
+      &::before {
+        display: inline-block;
+        margin-right: 0.5rem;
+        position: relative;
+        top: 2px;
+        content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(3,110,183,1)' class='bi bi-chevron-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    & > a.current::before {
+      transform: rotate(90deg);
+      top: 4px;
+    }
+  }
+
+  .toctree-l2 {
+    margin-left: 1.5rem;
   }
 
   ul {
@@ -377,10 +409,6 @@ footer {
         &:hover {
           color: $active-color;
           text-decoration: underline $active-color;
-        }
-
-        &.current {
-          background-color: $current-background-color;
         }
       }
     }
@@ -430,7 +458,6 @@ footer {
             display: inline-block;
             height: 100%;
             width: 100%;
-            padding: 0.3rem 0;
 
             &:hover {
               color: $active-color;

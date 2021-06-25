@@ -11155,7 +11155,7 @@ dl dd {
 
 table.docutils th {
   background-color: #036eb7;
-  color: #f8f9fa;
+  color: #fff;
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border: 1px solid black;
@@ -11181,7 +11181,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
-  color: #9fa0a0;
+  color: #343131;
   border-top: 1px solid gray;
 }
 footer > span {
@@ -11228,9 +11228,12 @@ footer > span:first-child {
 }
 
 .caption {
-  color: #9fa0a0;
-  margin: 1.5rem 0 0 1rem;
+  color: #343131;
+  margin: 1.5rem 0 0.5rem 1rem;
   font-weight: 900;
+}
+.caption:first-child {
+  margin-top: 0;
 }
 
 .admonition {
@@ -11241,7 +11244,7 @@ footer > span:first-child {
 }
 .admonition > .admonition-title {
   background-color: #0095D9;
-  color: #f8f9fa;
+  color: #fff;
 }
 .admonition > p {
   margin: 0;
@@ -11308,7 +11311,7 @@ footer > span:first-child {
   justify-content: space-between;
   border-right: 1px solid #036eb7;
   border-left: 1px solid #036eb7;
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 
 .section {
@@ -11336,7 +11339,7 @@ footer > span:first-child {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 
 .left-sidenavi-header {
@@ -11352,7 +11355,7 @@ footer > span:first-child {
 }
 .left-sidenavi-header-logo > div > img {
   border-radius: 0.5rem;
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 .left-sidenavi-header-brand {
   display: flex;
@@ -11360,11 +11363,11 @@ footer > span:first-child {
   padding-bottom: 0.5rem;
 }
 .left-sidenavi-header-brand > a {
-  color: #f8f9fa;
+  color: #fff;
   font-size: 1.25rem;
 }
 .left-sidenavi-header-brand > a:hover {
-  background-color: rgba(248, 249, 250, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .left-sidenavi-header-version {
   display: flex;
@@ -11372,7 +11375,7 @@ footer > span:first-child {
   padding-bottom: 0.5rem;
 }
 .left-sidenavi-header-version > span {
-  color: #f8f9fa;
+  color: #fff;
   font-size: 1.25rem;
 }
 
@@ -11384,6 +11387,28 @@ footer > span:first-child {
 }
 .left-sidenavi-contents::-webkit-scrollbar {
   display: none;
+}
+.left-sidenavi-contents .toctree-l1.current {
+  background-color: #eeeeee;
+}
+.left-sidenavi-contents .toctree-l1 > a {
+  font-weight: 700;
+}
+.left-sidenavi-contents .toctree-l1 > a::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 2px;
+  content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(3,110,183,1)' class='bi bi-chevron-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+  width: 1rem;
+  height: 1rem;
+}
+.left-sidenavi-contents .toctree-l1 > a.current::before {
+  transform: rotate(90deg);
+  top: 4px;
+}
+.left-sidenavi-contents .toctree-l2 {
+  margin-left: 1.5rem;
 }
 .left-sidenavi-contents ul {
   margin: 0;
@@ -11403,9 +11428,6 @@ footer > span:first-child {
   color: #01304F;
   text-decoration: underline #01304F;
 }
-.left-sidenavi-contents ul > li > a.current {
-  background-color: #e5e4e6;
-}
 
 .right-sidenavi {
   box-sizing: border-box;
@@ -11415,7 +11437,7 @@ footer > span:first-child {
 
 .right-sidenavi-header {
   padding: 0.3rem 1rem;
-  color: #9fa0a0;
+  color: #343131;
   font-weight: 700;
 }
 
@@ -11445,14 +11467,13 @@ footer > span:first-child {
   display: inline-block;
   height: 100%;
   width: 100%;
-  padding: 0.3rem 0;
 }
 .right-sidenavi-contents > ul > li ul > li > a:hover {
   color: #01304F;
   text-decoration: underline #01304F;
 }
 .right-sidenavi-contents > ul > li ul > li > a.current {
-  background-color: #e5e4e6;
+  background-color: #eeeeee;
 }
 .right-sidenavi-contents > ul > li ul > li ul {
   padding-left: 1rem;
