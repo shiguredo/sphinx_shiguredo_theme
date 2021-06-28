@@ -11501,7 +11501,12 @@ footer > span:first-child {
   }
 }
 @media (max-width: 992px) {
+  #root {
+    background-color: #fff;
+  }
+
   .main {
+    width: 100%;
     margin-top: 3.5rem;
     justify-content: center;
   }
@@ -11516,6 +11521,42 @@ footer > span:first-child {
 
   .navbar {
     display: block;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .caption {
+    color: #000;
+  }
+
+  h1, .h1 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h2, .h2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h3, .h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h4, .h4 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+
+  footer {
+    flex-direction: column;
   }
 }
 
