@@ -12,19 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentTop = current.getBoundingClientRect().top;
     scrollTarget.scrollTo(0, currentTop - scrollTargetTop);
 });
-// right navi
-for (const link of document.querySelectorAll(".right-sidenavi-contents a")) {
-    link.addEventListener("click", (event) => {
-        console.log("click", event.target);
-        const currentContent = document.querySelector(".right-sidenavi-contents a.current");
-        if (currentContent) {
-            currentContent.classList.remove("current");
-        }
-        if (event.target) {
-            event.target.classList.add("current");
-        }
-    });
-}
 window.addEventListener("scroll", (_) => {
     const sections = document.querySelectorAll(".section");
     // 現在のスクロール上部にある section を探す

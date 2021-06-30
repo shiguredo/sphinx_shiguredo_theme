@@ -4,7 +4,7 @@ import typescript from "rollup-plugin-typescript2";
 
 export default [
   {
-    input: "./src/typescript/navi.ts",
+    input: "./src/typescript/theme.ts",
     plugins: [
       typescript({
         tsconfig: "./tsconfig.json"
@@ -24,7 +24,7 @@ export default [
     ],
     output: {
       sourcemap: false,
-      file: "../sphinx_shiguredo_theme/static/js/navi.js",
+      file: "../sphinx_shiguredo_theme/static/js/theme.js",
       format: "es",
     }
   },
