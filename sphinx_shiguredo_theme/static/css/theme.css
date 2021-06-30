@@ -11175,7 +11175,7 @@ code.docutils {
 }
 
 footer {
-  margin-top: 2rem;
+  margin-top: 90vh;
   display: flex;
   flex-direction: row;
   align-items: center;
