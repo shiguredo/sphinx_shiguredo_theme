@@ -12,6 +12,9 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 
 利用前に https://github.com/shiguredo/oss をお読みください。
 
+## スクリーンショット
+
+[![Image from Gyazo](https://i.gyazo.com/f505186429b2d75f3eb052889a111526.png)](https://gyazo.com/f505186429b2d75f3eb052889a111526)
 
 ## ライセンス
 
