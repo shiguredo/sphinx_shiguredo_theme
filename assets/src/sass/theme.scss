@@ -2,7 +2,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 $shiguredo-color: #036eb7;
-$active-color: #01304F;
+$active-color: #01304f;
 $current-background-color: #eeeeee;
 $caption-color: #343131;
 $root-background-color: #c1e4e9;
@@ -26,6 +26,10 @@ a {
   &.headerlink {
     margin-left: 1rem;
   }
+}
+
+section {
+  padding: 1rem 0;
 }
 
 h1 {
@@ -185,14 +189,14 @@ footer {
 }
 
 .code-block-caption {
-  padding: 0!important;
+  padding: 0 !important;
   font-weight: 500;
   margin-bottom: 0.25rem;
-  font-size: unset!important;
+  font-size: unset !important;
 }
 
 .admonition {
-  $admonition-color: #0095D9;
+  $admonition-color: #0095d9;
   background-color: rgba($admonition-color, 0.1);
   border: 1px solid $admonition-color;
   padding: 0 !important;
@@ -208,7 +212,9 @@ footer {
     padding: 0.5rem;
   }
 
-  &.attention, &.caution, &.warning {
+  &.attention,
+  &.caution,
+  &.warning {
     $warning-color: #f08300;
     background-color: rgba($warning-color, 0.1);
     border: 1px solid $warning-color;
@@ -218,7 +224,8 @@ footer {
     }
   }
 
-  &.danger, &.error {
+  &.danger,
+  &.error {
     $warning-color: #e60033;
     background-color: rgba($warning-color, 0.1);
     border: 1px solid $warning-color;
@@ -228,7 +235,9 @@ footer {
     }
   }
 
-  &.hint, &.important, &.tip {
+  &.hint,
+  &.important,
+  &.tip {
     $warning-color: #3eb370;
     background-color: rgba($warning-color, 0.1);
     border: 1px solid $warning-color;
@@ -284,10 +293,6 @@ footer {
   border-right: 1px solid $shiguredo-color;
   border-left: 1px solid $shiguredo-color;
   background-color: $white;
-}
-
-.section {
-  padding: 1rem 0;
 }
 
 .left-sidenavi {
@@ -458,7 +463,6 @@ footer {
         padding: 0;
 
         & > li {
-
           & > a {
             box-sizing: border-box;
             display: inline-block;

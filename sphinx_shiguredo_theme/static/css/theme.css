@@ -11103,6 +11103,10 @@ a.headerlink {
   margin-left: 1rem;
 }
 
+section {
+  padding: 1rem 0;
+}
+
 h1, .h1 {
   font-size: 2rem;
   border-bottom: 3px solid #036eb7;
@@ -11244,12 +11248,12 @@ footer > span:first-child {
 
 .admonition {
   background-color: rgba(0, 149, 217, 0.1);
-  border: 1px solid #0095D9;
+  border: 1px solid #0095d9;
   padding: 0 !important;
   border-radius: 0.25rem;
 }
 .admonition > .admonition-title {
-  background-color: #0095D9;
+  background-color: #0095d9;
   color: #fff;
 }
 .admonition > p {
@@ -11318,10 +11322,6 @@ footer > span:first-child {
   border-right: 1px solid #036eb7;
   border-left: 1px solid #036eb7;
   background-color: #fff;
-}
-
-.section {
-  padding: 1rem 0;
 }
 
 .left-sidenavi {
@@ -11431,8 +11431,8 @@ footer > span:first-child {
   padding: 0.1rem 1rem;
 }
 .left-sidenavi-contents ul > li > a:hover {
-  color: #01304F;
-  text-decoration: underline #01304F;
+  color: #01304f;
+  text-decoration: underline #01304f;
 }
 
 .right-sidenavi {
@@ -11475,8 +11475,8 @@ footer > span:first-child {
   width: 100%;
 }
 .right-sidenavi-contents > ul > li ul > li > a:hover {
-  color: #01304F;
-  text-decoration: underline #01304F;
+  color: #01304f;
+  text-decoration: underline #01304f;
 }
 .right-sidenavi-contents > ul > li ul > li > a.current {
   background-color: #eeeeee;
