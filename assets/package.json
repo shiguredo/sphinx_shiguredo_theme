@@ -6,7 +6,7 @@
     "build": "yarn _build/sass && yarn _build/typescript",
     "_build/sass": "npx sass ./src/sass/theme.scss ../sphinx_shiguredo_theme/static/css/theme.css",
     "_build/typescript": "npx rollup -c",
-    "fmt": "prettier --write ./src && prettier --write ./sphinx_shiguredo_theme/*.html"
+    "fmt": "prettier --write ./src"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
