@@ -1,11 +1,15 @@
 (function () {
     function setCurrentRightSideNaviReference() {
-        const sections = document.querySelectorAll(".section");
+        const sections = document.querySelectorAll("section");
+        if (sections.length === 0) {
+            return;
+        }
         // 現在のスクロール上部にある section を探す
         const target = Array.from(sections).reduce((prevSection, currentSection) => {
             const prevSectionRect = prevSection.getBoundingClientRect();
             const currentSectionRect = currentSection.getBoundingClientRect();
-            if (0 < currentSectionRect.y || currentSectionRect.y < prevSectionRect.y) {
+            if (0 < currentSectionRect.y ||
+                currentSectionRect.y < prevSectionRect.y) {
                 return prevSection;
             }
             return currentSection;
