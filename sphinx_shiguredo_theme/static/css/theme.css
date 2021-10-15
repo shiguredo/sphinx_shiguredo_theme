@@ -11308,6 +11308,37 @@ footer > span:first-child {
   background-color: #c1e4e9;
 }
 
+#attention-message {
+  position: fixed;
+  width: calc(60rem + (22rem * 2) - 2px);
+  z-index: 10;
+  background-color: red;
+  top: 0;
+  left: calc(((100% - 60rem - (22rem * 2)) / 2) + 1px);
+  height: 2rem;
+  font-size: 1rem;
+  color: #664d03;
+  background-color: #ffe761;
+  border-bottom: 1px solid #036eb7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.left-sidenavi-header.with-attention-message {
+  padding-top: 3rem !important;
+}
+
+.content.with-attention-message {
+  padding-top: 2rem !important;
+}
+
+.right-sidenavi-header.with-attention-message {
+  padding-top: 2rem !important;
+}
+
 .main {
   display: flex;
   flex: 1;
@@ -11490,6 +11521,11 @@ footer > span:first-child {
     width: calc( ((100% - 60rem - 22rem) / 2) + 22rem );
   }
 
+  #attention-message {
+    width: calc(60rem + 22rem - 2px);
+    left: calc(((100% - 60rem - 22rem) / 2) + 1px);
+  }
+
   .right-sidenavi {
     display: none;
   }
@@ -11556,6 +11592,13 @@ footer > span:first-child {
 
   footer {
     flex-direction: column;
+  }
+
+  #attention-message {
+    left: 1px;
+    width: calc(100% - 2px);
+    font-size: 1rem;
+    top: 56px;
   }
 }
 
