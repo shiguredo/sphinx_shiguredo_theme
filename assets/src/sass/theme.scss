@@ -28,10 +28,6 @@ a {
   }
 }
 
-section {
-  padding: 1rem 0;
-}
-
 h1 {
   font-size: 2rem;
   border-bottom: 3px solid $shiguredo-color;
@@ -303,7 +299,25 @@ footer {
 }
 
 .content.with-attention-message {
-  padding-top: 2rem !important;
+  & > section {
+    &:before {
+      content: " ";
+      margin-top: 0;
+      height: 3rem;
+      display: block;
+      visibility: hidden;
+    }
+
+    & section {
+      &:before {
+        content: " ";
+        margin-top: -2.5rem;
+        height: 2.5rem;
+        display: block;
+        visibility: hidden;
+      }
+    }
+  }
 }
 
 .right-sidenavi-header.with-attention-message {
@@ -324,6 +338,26 @@ footer {
   border-right: 1px solid $shiguredo-color;
   border-left: 1px solid $shiguredo-color;
   background-color: $white;
+
+  & > section {
+    &:before {
+      content: " ";
+      margin-top: 0;
+      height: 1rem;
+      display: block;
+      visibility: hidden;
+    }
+
+    & section {
+      &:before {
+        content: " ";
+        margin-top: -1rem;
+        height: 1rem;
+        display: block;
+        visibility: hidden;
+      }
+    }
+  }
 }
 
 .left-sidenavi {

@@ -11103,10 +11103,6 @@ a.headerlink {
   margin-left: 1rem;
 }
 
-section {
-  padding: 1rem 0;
-}
-
 h1, .h1 {
   font-size: 2rem;
   border-bottom: 3px solid #036eb7;
@@ -11331,8 +11327,19 @@ footer > span:first-child {
   padding-top: 3rem !important;
 }
 
-.content.with-attention-message {
-  padding-top: 2rem !important;
+.content.with-attention-message > section:before {
+  content: " ";
+  margin-top: 0;
+  height: 3rem;
+  display: block;
+  visibility: hidden;
+}
+.content.with-attention-message > section section:before {
+  content: " ";
+  margin-top: -2.5rem;
+  height: 2.5rem;
+  display: block;
+  visibility: hidden;
 }
 
 .right-sidenavi-header.with-attention-message {
@@ -11353,6 +11360,20 @@ footer > span:first-child {
   border-right: 1px solid #036eb7;
   border-left: 1px solid #036eb7;
   background-color: #fff;
+}
+.content > section:before {
+  content: " ";
+  margin-top: 0;
+  height: 1rem;
+  display: block;
+  visibility: hidden;
+}
+.content > section section:before {
+  content: " ";
+  margin-top: -1rem;
+  height: 1rem;
+  display: block;
+  visibility: hidden;
 }
 
 .left-sidenavi {
