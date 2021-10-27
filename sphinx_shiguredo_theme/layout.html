@@ -3,17 +3,17 @@
   {%- set url_root = pathto('', 1) %} {%- if url_root == '#' %}{% set url_root =
   '' %}{% endif %} {%- macro css() %}
   <link
-    rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}"
+    rel="stylesheet" href="/{{ pathto('_static/pygments.css', 1) }}"
     type="text/css"
   />
   <link
     rel="stylesheet"
-    href="{{ pathto('_static/basic.css', 1) }}"
+    href="/{{ pathto('_static/basic.css', 1) }}"
     type="text/css"
   />
   <link
     rel="stylesheet"
-    href="{{ pathto('_static/' + style, 1)|e }}"
+    href="/{{ pathto('_static/' + style, 1)|e }}"
     type="text/css"
   />
   {%- for css in css_files %} {%- if css|attr("filename") %} {{ css_tag(css) }}
@@ -23,7 +23,7 @@
   <script
     id="documentation_options"
     data-url_root="{{ url_root }}"
-    src="{{ pathto('_static/documentation_options.js', 1) }}"
+    src="/{{ pathto('_static/documentation_options.js', 1) }}"
   ></script>
   {%- for js in script_files %} {{ js_tag(js) }} {%- endfor %} {%- endmacro %}
 
@@ -50,10 +50,10 @@
       rel="search"
       type="application/opensearchdescription+xml"
       title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-      href="{{ pathto('_static/opensearch.xml', 1) }}"
+      href="/{{ pathto('_static/opensearch.xml', 1) }}"
     />
     {%- endif %} {%- if favicon %}
-    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1)|e }}" />
+    <link rel="shortcut icon" href="/{{ pathto('_static/' + favicon, 1)|e }}" />
     {%- endif %} {%- endif %} {%- block linktags %} {%- if hasdoc('about') %}
     <link
       rel="author"
@@ -107,7 +107,7 @@
               <div class="left-sidenavi-header-logo">
                 {%- if logo %}
                 <div>
-                  <img class="logo" src="{{ pathto('_static/' + logo, 1)|e }}" alt="Logo" />
+                  <img class="logo" src="/{{ pathto('_static/' + logo, 1)|e }}" alt="Logo" />
                 </div>
                 {%- endif %}
               </div>
@@ -197,7 +197,7 @@
         {%- endblock %}
       </main>
     </div>
-    <script src="{{ pathto('_static/js/theme.js', 1) }}"></script>
-    <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+    <script src="/{{ pathto('_static/js/theme.js', 1) }}"></script>
+    <script src="/{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   </body>
 </html>
