@@ -11376,33 +11376,26 @@ footer > span:first-child {
   visibility: hidden;
 }
 
-.content.not-found {
-  /**
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h1 {
-      font-size: 8rem;
-      color: $shiguredo-color;
-      border-bottom: 3px solid $shiguredo-color;
-      margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    p {
-      font-size: 4rem;
-      color: $shiguredo-color;
-    }
-  }
-
-  footer {
-    margin-top: 0;
-  }
-  **/
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.not-found h1, .not-found .h1 {
+  font-size: 8rem;
+  color: #036eb7;
+  border-bottom: 3px solid #036eb7;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+}
+.not-found p {
+  font-size: 4rem;
+  color: #036eb7;
+}
+.not-found footer {
+  margin-top: 0;
 }
 
 .left-sidenavi {
