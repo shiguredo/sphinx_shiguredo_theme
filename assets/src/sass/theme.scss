@@ -360,6 +360,33 @@ footer {
   }
 }
 
+.content.not-found {
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 8rem;
+      color: $shiguredo-color;
+      border-bottom: 3px solid $shiguredo-color;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 4rem;
+      color: $shiguredo-color;
+    }
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
 .left-sidenavi {
   box-sizing: border-box;
   display: flex;

@@ -34,6 +34,10 @@ def on_doctree_resolved(app, doctree, docname):
                 node["anchorname"] = "#" + new_id
 
 
+def on_builder_inited(app):
+    app.config.html_additional_pages["404"] = "404.html"
+
+
 class TableWrapperTransform(SphinxPostTransform):
     builder = ("html",)
     default_priority = 500
@@ -51,3 +55,4 @@ def setup(app):
     app.add_html_theme("sphinx_shiguredo_theme", path.abspath(path.dirname(__file__)))
     app.connect("doctree-resolved", on_doctree_resolved)
     app.add_post_transform(TableWrapperTransform)
+    app.connect("builder-inited", on_builder_inited)
