@@ -23,7 +23,7 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 - https://sora-ios-sdk.shiguredo.jp/
 - https://sora-android-sdk.shiguredo.jp/
 
-Cloudflare Pages を利用してデプロイしてある。
+[Cloudflare Pages](https://pages.cloudflare.com/) を利用してデプロイしている。
 
 ## ライセンス
 
