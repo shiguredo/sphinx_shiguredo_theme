@@ -16,6 +16,15 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 
 [![Image from Gyazo](https://i.gyazo.com/f505186429b2d75f3eb052889a111526.png)](https://gyazo.com/f505186429b2d75f3eb052889a111526)
 
+## 実際に利用しているサイト
+
+- https://sora-doc.shiguredo.jp/
+- https://sora-js-sdk.shiguredo.jp/
+- https://sora-ios-sdk.shiguredo.jp/
+- https://sora-android-sdk.shiguredo.jp/
+
+Cloudflare Pages を利用してデプロイしてある。
+
 ## ライセンス
 
 ```
