@@ -11433,10 +11433,6 @@ footer > span:first-child {
 .left-sidenavi-header-logo > div {
   padding-bottom: 0.5rem;
 }
-.left-sidenavi-header-logo > div > img {
-  border-radius: 0.5rem;
-  background-color: #fff;
-}
 .left-sidenavi-header-brand {
   display: flex;
   justify-content: center;

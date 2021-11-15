@@ -419,11 +419,6 @@ footer {
 
     & > div {
       padding-bottom: 0.5rem;
-
-      & > img {
-        border-radius: 0.5rem;
-        background-color: $white;
-      }
     }
   }
 
@@ -667,6 +662,6 @@ footer {
     left: 1px;
     width: calc(100% - 2px);
     font-size: 1rem;
-    top: 56px
+    top: 56px;
   }
 }
