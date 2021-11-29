@@ -5,11 +5,10 @@
             return;
         }
         // 現在のスクロール上部にある section を探す
-        const target = Array.from(sections).reduce((prevSection, currentSection) => {
-            const prevSectionRect = prevSection.getBoundingClientRect();
+        const target = Array.from(sections).reduce((prevSection, currentSection, _i, arr) => {
             const currentSectionRect = currentSection.getBoundingClientRect();
-            if (0 < currentSectionRect.y ||
-                currentSectionRect.y < prevSectionRect.y) {
+            if (1 < currentSectionRect.y) {
+                arr.splice(1);
                 return prevSection;
             }
             return currentSection;
@@ -19,21 +18,21 @@
         }
         // 右コンテンツナビの対象リンクに current class を設定する
         const rightSidenavi = document.querySelector(".right-sidenavi-contents");
-        if (!rightSidenavi) {
+        if (rightSidenavi === null) {
             return;
         }
         const currentContent = rightSidenavi.querySelector("a.current");
         if (currentContent) {
             currentContent.classList.remove("current");
         }
-        const prevContent = rightSidenavi.querySelector(`a[href="#${target.id}"]`);
-        if (!prevContent) {
+        const nextContent = rightSidenavi.querySelector(`a[href="#${target.id}"]`);
+        if (!nextContent) {
             return;
         }
-        if (prevContent.classList.contains("current")) {
+        if (nextContent.classList.contains("current")) {
             return;
         }
-        prevContent.classList.add("current");
+        nextContent.classList.add("current");
     }
     document.addEventListener("DOMContentLoaded", () => {
         // left navi
