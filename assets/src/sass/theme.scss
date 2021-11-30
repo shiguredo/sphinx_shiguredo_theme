@@ -39,30 +39,41 @@ h1 {
 h2 {
   font-size: 1.75rem;
   border-bottom: 2px solid $shiguredo-color;
+  border-left: 8px solid $shiguredo-color;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
   font-weight: 700;
 }
 
 h3 {
   font-size: 1.5rem;
-  border-bottom: 1px solid $shiguredo-color;
+  border-bottom: 2px solid $shiguredo-color;
+  border-left: 5px double $shiguredo-color;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
   font-weight: 700;
 }
 
 h4 {
   font-size: 1.25rem;
+  border-bottom: 1px solid $shiguredo-color;
+  border-left: 1px double $shiguredo-color;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
   font-weight: 700;
 }
 
 h5 {
+  border-bottom: 1px solid $shiguredo-color;
+  border-left: 1px double $shiguredo-color;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
   font-weight: 700;
+  display: inline-block;
 }
 
 p {
