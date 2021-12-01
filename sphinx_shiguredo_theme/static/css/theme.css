@@ -11105,48 +11105,43 @@ a.headerlink {
 
 h1, .h1 {
   font-size: 2rem;
-  border-bottom: 3px solid #036eb7;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #036eb7;
+  border-left: 8px solid #036eb7;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   font-weight: 700;
 }
 
 h2, .h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   border-bottom: 2px solid #036eb7;
-  border-left: 8px solid #036eb7;
+  border-left: 4px solid #036eb7;
   margin-bottom: 1rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   font-weight: 700;
 }
 
 h3, .h3 {
-  font-size: 1.5rem;
-  border-bottom: 2px solid #036eb7;
+  font-size: 1.25rem;
   border-left: 5px double #036eb7;
   margin-bottom: 1rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   font-weight: 700;
 }
 
 h4, .h4 {
   font-size: 1.25rem;
-  border-bottom: 1px solid #036eb7;
-  border-left: 1px double #036eb7;
+  border-left: 2px double #036eb7;
   margin-bottom: 1rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   font-weight: 700;
 }
 
 h5, .h5 {
-  border-bottom: 1px solid #036eb7;
+  font-size: 1.25rem;
   border-left: 1px double #036eb7;
   margin-bottom: 1rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   font-weight: 700;
   display: inline-block;
 }
