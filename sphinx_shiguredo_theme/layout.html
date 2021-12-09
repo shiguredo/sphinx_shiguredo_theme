@@ -160,6 +160,7 @@
       </nav>
 
       <main class="main" role="main">
+        {% block content %}
         <div class="content{{' with-attention-message' if theme_attention_message}}">
           {% block body %} {% endblock %}
           {%- block footer %}
@@ -182,6 +183,7 @@
           </footer>
           {%- endblock %}
         </div>
+        {% endblock %}
 
         {% block right_sidenavi %}
         <aside class="right-sidenavi">

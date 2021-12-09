@@ -1,8 +1,27 @@
 {% extends "layout.html" %}
 
-{% block body %}
-<section class="not-found">
-  <h1>404</h1>
-  <p>Page not found</p>
-</section>
+{% block content %}
+<div class="content not-found {{' with-attention-message' if theme_attention_message}}">
+  <section>
+    <h1>404</h1>
+    <p>Page not found</p>
+  </section>
+  <footer>
+    {%- if show_copyright %}
+    {%- if hasdoc('copyright') %}
+    <span>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}</span>
+    {%- else %}
+    <span>&#169; Copyright {{ copyright }}</span>
+    {%- endif %}
+    {%- endif %}
+
+    {%- if last_updated %}
+    <span>Last updated on {{ last_updated }}</span>
+    {%- endif %}
+
+    {%- if show_sphinx %}
+    <span>Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}</span>
+    {%- endif %}
+  </footer>
+</div>
 {% endblock %}

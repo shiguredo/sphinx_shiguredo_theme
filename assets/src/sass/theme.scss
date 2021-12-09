@@ -133,6 +133,10 @@ footer {
   }
 }
 
+img {
+  margin: 1rem 0;
+}
+
 .navbar {
   display: none;
   background-color: $shiguredo-color;
@@ -250,28 +254,34 @@ footer {
   }
 }
 
-#search-results {
-  & > .search-summary {
-    padding: 1rem 0;
-    border-bottom: 1px solid gray;
-  }
-
-  & > ul.search {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    list-style-image: none;
-
-    & > li {
-      background-image: none;
-      padding: 2rem 0;
-      box-sizing: border-box;
+.search-page {
+  #search-results {
+    & > .search-summary {
+      padding: 1rem 0;
       border-bottom: 1px solid gray;
+    }
 
-      & > .context {
-        margin: 1rem 0 0 0;
+    & > ul.search {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      list-style-image: none;
+
+      & > li {
+        background-image: none;
+        padding: 2rem 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid gray;
+
+        & > .context {
+          margin: 1rem 0 0 0;
+        }
       }
     }
+  }
+
+  footer {
+    margin-top: 0;
   }
 }
 
@@ -367,15 +377,18 @@ footer {
 }
 
 .not-found {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h1 {
     font-size: 8rem;
     color: $shiguredo-color;
     border-bottom: 3px solid $shiguredo-color;
+    border-left: 0;
     margin-bottom: 2rem;
     padding-bottom: 0.5rem;
     font-weight: 700;
