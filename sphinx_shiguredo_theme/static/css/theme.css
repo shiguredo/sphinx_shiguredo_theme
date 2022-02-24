@@ -11085,6 +11085,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto !important;
+  }
+}
 html {
   height: 100%;
   overflow-x: hidden;

@@ -9,6 +9,12 @@ $root-background-color: #c1e4e9;
 $sidenavi-width: 22rem;
 $main-width: 60rem;
 
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto!important;
+  }
+}
+
 html {
   height: 100%;
   overflow-x: hidden;
