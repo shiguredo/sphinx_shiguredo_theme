@@ -23,6 +23,7 @@ html {
 
 body {
   height: 100%;
+  line-height: 2rem;
 }
 
 a {
@@ -116,6 +117,7 @@ table.docutils {
 }
 
 code.docutils {
+  font-size: 1rem!important;
   padding: 0.1rem 0.2rem;
   border: 1px solid #bbbbbb;
   background-color: #f9f9f9;
