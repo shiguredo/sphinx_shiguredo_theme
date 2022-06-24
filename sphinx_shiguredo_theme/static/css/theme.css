@@ -11345,6 +11345,7 @@ img {
 
 .left-sidenavi-header.with-attention-message {
   padding-top: 3rem !important;
+  height: calc(256px + 3rem);
 }
 
 .content.with-attention-message > section:before {
@@ -11446,6 +11447,7 @@ img {
 .left-sidenavi-header {
   background-color: #036eb7;
   padding: 1rem;
+  height: 256px;
 }
 .left-sidenavi-header-logo {
   display: flex;
@@ -11476,22 +11478,32 @@ img {
   font-size: 1.25rem;
 }
 
-.left-sidenavi-contents {
+.left-sidenavi-body.with-attention-message {
+  min-height: calc(100vh - 256px - 3rem);
+}
+
+.left-sidenavi-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0.5rem 0 1rem 0;
+  min-height: calc(100vh - 256px);
 }
-.left-sidenavi-contents::-webkit-scrollbar {
+.left-sidenavi-body .left-sidenavi-contents {
+  margin-top: 0.5rem;
+}
+.left-sidenavi-body .left-sidenavi-contents::-webkit-scrollbar {
   display: none;
 }
-.left-sidenavi-contents .toctree-l1.current {
+.left-sidenavi-body .left-sidenavi-contents .toctree-l1.current {
   background-color: #eeeeee;
 }
-.left-sidenavi-contents .toctree-l1 > a {
+.left-sidenavi-body .left-sidenavi-contents .toctree-l1 > a {
   font-weight: 700;
 }
-.left-sidenavi-contents .toctree-l1 > a::before {
+.left-sidenavi-body .left-sidenavi-contents .toctree-l1 > a::before {
   display: inline-block;
   margin-right: 0.5rem;
   position: relative;
@@ -11500,30 +11512,36 @@ img {
   width: 1rem;
   height: 1rem;
 }
-.left-sidenavi-contents .toctree-l1 > a.current::before {
+.left-sidenavi-body .left-sidenavi-contents .toctree-l1 > a.current::before {
   transform: rotate(90deg);
   top: 4px;
 }
-.left-sidenavi-contents .toctree-l2 {
+.left-sidenavi-body .left-sidenavi-contents .toctree-l2 {
   margin-left: 1.5rem;
 }
-.left-sidenavi-contents ul {
+.left-sidenavi-body .left-sidenavi-contents ul {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   list-style: none;
 }
-.left-sidenavi-contents ul > li > a {
+.left-sidenavi-body .left-sidenavi-contents ul > li > a {
   box-sizing: border-box;
   display: inline-block;
   height: 100%;
   width: 100%;
   padding: 0.1rem 1rem;
 }
-.left-sidenavi-contents ul > li > a:hover {
+.left-sidenavi-body .left-sidenavi-contents ul > li > a:hover {
   color: #01304f;
   text-decoration: underline #01304f;
+}
+.left-sidenavi-body .left-sidenavi-underline hr {
+  height: 0.5rem;
+  margin: 1rem 0 0 0;
+  opacity: 1;
+  color: #036eb7;
 }
 
 .right-sidenavi {

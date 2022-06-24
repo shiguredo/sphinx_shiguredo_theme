@@ -320,6 +320,7 @@ img {
 
 .left-sidenavi-header.with-attention-message {
   padding-top: 3rem !important;
+  height: calc(256px + 3rem);
 }
 
 .content.with-attention-message {
@@ -439,6 +440,7 @@ img {
 .left-sidenavi-header {
   background-color: $shiguredo-color;
   padding: 1rem;
+  height: 256px;
 
   &-logo {
     display: flex;
@@ -476,64 +478,85 @@ img {
   }
 }
 
-.left-sidenavi-contents {
+
+.left-sidenavi-body.with-attention-message {
+  min-height: calc(100vh - 256px - 3rem);
+}
+
+.left-sidenavi-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0.5rem 0 1rem 0;
+  min-height: calc(100vh - 256px);
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  .left-sidenavi-contents {
+    margin-top: 0.5rem;
 
-  .toctree-l1 {
-    &.current {
-      background-color: $current-background-color;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    & > a {
-      font-weight: 700;
 
-      &::before {
-        display: inline-block;
-        margin-right: 0.5rem;
-        position: relative;
-        top: 2px;
-        content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(3,110,183,1)' class='bi bi-chevron-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
-        width: 1rem;
-        height: 1rem;
+    .toctree-l1 {
+      &.current {
+        background-color: $current-background-color;
       }
-    }
-
-    & > a.current::before {
-      transform: rotate(90deg);
-      top: 4px;
-    }
-  }
-
-  .toctree-l2 {
-    margin-left: 1.5rem;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-
-    & > li {
       & > a {
-        box-sizing: border-box;
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        padding: 0.1rem 1rem;
+        font-weight: 700;
 
-        &:hover {
-          color: $active-color;
-          text-decoration: underline $active-color;
+        &::before {
+          display: inline-block;
+          margin-right: 0.5rem;
+          position: relative;
+          top: 2px;
+          content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(3,110,183,1)' class='bi bi-chevron-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+          width: 1rem;
+          height: 1rem;
         }
       }
+
+      & > a.current::before {
+        transform: rotate(90deg);
+        top: 4px;
+      }
+    }
+
+    .toctree-l2 {
+      margin-left: 1.5rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      & > li {
+        & > a {
+          box-sizing: border-box;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          padding: 0.1rem 1rem;
+
+          &:hover {
+            color: $active-color;
+            text-decoration: underline $active-color;
+          }
+        }
+      }
+    }
+  }
+
+  .left-sidenavi-underline {
+    hr {
+      height: 0.5rem;
+      margin: 1rem 0 0 0;
+      opacity: 1;
+      color: $shiguredo-color;
     }
   }
 }

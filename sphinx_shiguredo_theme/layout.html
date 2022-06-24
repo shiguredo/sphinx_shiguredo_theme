@@ -141,7 +141,14 @@
                 </form>
               </div>
             </div>
-            <div class="left-sidenavi-contents">{{ toctree(maxdepth=2) }}</div>
+            <div class="left-sidenavi-body{{' with-attention-message' if theme_attention_message}}">
+              <div class="left-sidenavi-contents">
+                {{ toctree(maxdepth=2) }}
+              </div>
+              <div class="left-sidenavi-underline">
+                <hr />
+              </div>
+            </div>
           </div>
         </div>
       </aside>
