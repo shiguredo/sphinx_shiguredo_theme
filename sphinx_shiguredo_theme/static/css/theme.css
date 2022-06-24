@@ -11180,8 +11180,10 @@ table.docutils td {
 }
 
 code.docutils {
-  padding: 0.1rem;
-  border: 1px solid #e1e4e5;
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #bbbbbb;
+  background-color: #f9f9f9;
+  color: #ff0000;
 }
 
 footer {
