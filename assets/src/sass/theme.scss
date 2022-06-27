@@ -181,6 +181,11 @@ img {
   }
 }
 
+// docutils がコロンを HTML として出力するようになったので CSS でコロンを生成しないようにする
+dl.field-list > dt:after {
+  content: "";
+}
+
 .table_wrapper {
   @extend .table-responsive;
 
