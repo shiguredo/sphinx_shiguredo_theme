@@ -39,7 +39,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     // left navi
-    const scrollTarget = document.querySelector(".left-sidenavi-contents");
+    const scrollTarget = document.querySelector(".left-sidenavi-body");
     if (!scrollTarget) {
       return;
     }
