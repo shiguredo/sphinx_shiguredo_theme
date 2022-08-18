@@ -9,16 +9,16 @@
     "fmt": "prettier --write ./src"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "bootstrap": "^5.0.2",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "bootstrap": "^5.2.0",
     "normalize.css": "^8.0.1",
-    "prettier": "^2.3.1",
-    "rollup": "^2.52.2",
+    "prettier": "^2.7.1",
+    "rollup": "^2.78.0",
     "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "sass": "^1.35.1",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.4"
+    "rollup-plugin-typescript2": "^0.32.1",
+    "sass": "^1.54.4",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   }
 }
