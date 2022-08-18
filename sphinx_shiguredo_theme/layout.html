@@ -125,11 +125,10 @@
 
               <div class="left-sidenavi-header-search">
                 {% if theme_meilisearch %}
-                <div class="input-group">
+                <div class="meilisearch-box">
                   <input
-                    id="search"
+                    id="meilisearch"
                     type="text"
-                    class="form-control form-control-sm"
                     placeholder="search"
                     name="q"
                     />
@@ -232,7 +231,7 @@
         hostUrl: "{{ theme_meilisearch_host_url }}",
         apiKey: "{{ theme_meilisearch_api_key }}",
         indexUid: "{{ theme_meilisearch_index_uid }}",
-        inputSelector: "#search",
+        inputSelector: "#meilisearch",
       })
     </script>
     {% endif %}
