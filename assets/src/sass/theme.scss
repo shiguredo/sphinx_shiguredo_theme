@@ -653,6 +653,23 @@ dl.field-list > dt:after {
   }
 }
 
+/* meilisearch の style を上書きする */
+.meilisearch-autocomplete .dsb-dropdown-menu {
+  max-width: 60rem !important;
+
+  [class^=dsb-dataset-] {
+    width: 60rem;
+    /* left navi header 分の考慮して 300px 短くする */
+    max-height: calc(100vh - 300px);
+    border: 1px solid $shiguredo-color!important;
+    border-radius: 0!important;
+  }
+
+  .docs-searchbar-suggestion--category-header {
+    border-bottom: 1px solid $shiguredo-color;
+  }
+}
+
 @media (max-width: calc(#{$main-width} + #{$sidenavi-width} + #{$sidenavi-width})) {
   .left-sidenavi {
     width: calc(

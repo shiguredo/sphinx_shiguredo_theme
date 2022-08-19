@@ -11600,6 +11600,21 @@ dl.field-list > dt:after {
   padding-left: 1rem;
 }
 
+/* meilisearch の style を上書きする */
+.meilisearch-autocomplete .dsb-dropdown-menu {
+  max-width: 60rem !important;
+}
+.meilisearch-autocomplete .dsb-dropdown-menu [class^=dsb-dataset-] {
+  width: 60rem;
+  /* left navi header 分の考慮して 300px 短くする */
+  max-height: calc(100vh - 300px);
+  border: 1px solid #036eb7 !important;
+  border-radius: 0 !important;
+}
+.meilisearch-autocomplete .dsb-dropdown-menu .docs-searchbar-suggestion--category-header {
+  border-bottom: 1px solid #036eb7;
+}
+
 @media (max-width: calc(60rem + 22rem + 22rem)) {
   .left-sidenavi {
     width: calc(
