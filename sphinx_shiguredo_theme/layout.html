@@ -232,6 +232,9 @@
         apiKey: "{{ theme_meilisearch_api_key }}",
         indexUid: "{{ theme_meilisearch_index_uid }}",
         inputSelector: "#meilisearch",
+        meilisearchOptions: {
+          limit: {{ theme_meilisearch_options_limit }},
+        },
       })
     </script>
     {% endif %}
