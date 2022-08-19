@@ -11614,6 +11614,12 @@ dl.field-list > dt:after {
 .meilisearch-autocomplete .dsb-dropdown-menu .docs-searchbar-suggestion--category-header {
   border-bottom: 1px solid #036eb7;
 }
+.meilisearch-autocomplete .dsb-dropdown-menu .docs-searchbar-footer {
+  height: 24px;
+}
+.meilisearch-autocomplete .dsb-dropdown-menu .docs-searchbar-footer img {
+  margin: 0 0 4px 0;
+}
 
 @media (max-width: calc(60rem + 22rem + 22rem)) {
   .left-sidenavi {

@@ -668,6 +668,13 @@ dl.field-list > dt:after {
   .docs-searchbar-suggestion--category-header {
     border-bottom: 1px solid $shiguredo-color;
   }
+  .docs-searchbar-footer {
+    height: 24px;
+
+    img {
+      margin: 0 0 4px 0;
+    }
+  }
 }
 
 @media (max-width: calc(#{$main-width} + #{$sidenavi-width} + #{$sidenavi-width})) {
