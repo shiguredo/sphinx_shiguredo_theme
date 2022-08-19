@@ -14,7 +14,7 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 
 ## スクリーンショット
 
-[![Image from Gyazo](https://i.gyazo.com/f505186429b2d75f3eb052889a111526.png)](https://gyazo.com/f505186429b2d75f3eb052889a111526)
+[![Image from Gyazo](https://i.gyazo.com/0315a144e31ba5602ac9482077fe5169.jpg)](https://gyazo.com/0315a144e31ba5602ac9482077fe5169)
 
 ## 実際に利用しているサイト
 
@@ -22,14 +22,23 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 - https://sora-js-sdk.shiguredo.jp/
 - https://sora-ios-sdk.shiguredo.jp/
 - https://sora-android-sdk.shiguredo.jp/
+- https://tobi.shiguredo.app/
 
-[Cloudflare Pages](https://pages.cloudflare.com/) を利用してデプロイしている。
+## デプロイ
+
+[Cloudflare Pages](https://pages.cloudflare.com/) を利用している。
+
+## 検索
+
+[Meilisearch](https://www.meilisearch.com/) を利用している。
+
+[![Image from Gyazo](https://i.gyazo.com/79fe92ce9c8b6e8941dc747428e884a6.gif)](https://gyazo.com/79fe92ce9c8b6e8941dc747428e884a6)
 
 ## ライセンス
 
 ```
-Copyright 2021, Yuki Ito (Original Author)
-Copyright 2021, Shiguredo Inc.
+Copyright 2021-2022, Yuki Ito (Original Author)
+Copyright 2021-2022, Shiguredo Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
