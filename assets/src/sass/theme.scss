@@ -658,7 +658,7 @@ dl.field-list > dt:after {
   max-width: 60rem !important;
 
   [class^=dsb-dataset-] {
-    width: 60rem;
+    width: 40rem;
     /* left navi header 分の考慮して 300px 短くする */
     max-height: calc(100vh - 300px);
     border: 1px solid $shiguredo-color!important;
