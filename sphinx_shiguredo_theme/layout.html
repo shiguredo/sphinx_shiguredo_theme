@@ -90,6 +90,11 @@
       title="{{ prev.title|striptags|e }}"
       href="{{ prev.link|e }}"
     />
+    {%- endif %} {%- if theme_meilisearch %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.2.0/dist/cdn/docs-searchbar.min.css"
+    />
     {%- endif %} {%- endblock %} {%- block extrahead %} {% endblock %}
   </head>
   <body>
@@ -119,6 +124,16 @@
               </div>
 
               <div class="left-sidenavi-header-search">
+                {% if theme_meilisearch %}
+                <div class="meilisearch-box">
+                  <input
+                    id="meilisearch"
+                    type="text"
+                    placeholder="search"
+                    name="q"
+                    />
+                </div>
+                {% else %}
                 <form
                   class="row search"
                   action="{{ pathto('search') }}"
@@ -139,6 +154,7 @@
                     />
                   </div>
                 </form>
+                {% endif %}
               </div>
             </div>
             <div class="left-sidenavi-body{{' with-attention-message' if theme_attention_message}}">
@@ -208,5 +224,19 @@
     </div>
     <script src="/{{ pathto('_static/js/theme.js', 1) }}"></script>
     <script src="/{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+    {% if theme_meilisearch %}
+    <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.2.0/dist/cdn/docs-searchbar.min.js"></script>
+    <script>
+      docsSearchBar({
+        hostUrl: "{{ theme_meilisearch_host_url }}",
+        apiKey: "{{ theme_meilisearch_api_key }}",
+        indexUid: "{{ theme_meilisearch_index_uid }}",
+        inputSelector: "#meilisearch",
+        meilisearchOptions: {
+          limit: {{ theme_meilisearch_options_limit }},
+        },
+      })
+    </script>
+    {% endif %}
   </body>
 </html>

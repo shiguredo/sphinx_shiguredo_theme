@@ -482,6 +482,30 @@ dl.field-list > dt:after {
       font-size: 1.25rem;
     }
   }
+
+  &-search {
+    & > .meilisearch-box {
+      position: relative;
+
+      .meilisearch-autocomplete {
+        width: 100%;
+
+        input {
+          width: 100%;
+          cursor: text;
+          display: inline-block;
+          border: 1px solid #d2c9da;
+          border-radius: 0.5rem;
+          font-size: 1.25rem;
+          line-height: 2rem;
+          padding: 0 0.5rem 0 2rem;
+          outline: none;
+          background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-search' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><circle cx='10' cy='10' r='7' style='stroke: rgb(71, 48, 165);'></circle><line x1='21' y1='21' x2='15' y2='15' style='stroke: rgb(71, 48, 165);'></line></svg>") no-repeat 0.5rem 0.45rem;
+          background-size: 1.25rem;
+        }
+      }
+    }
+  }
 }
 
 
@@ -625,6 +649,30 @@ dl.field-list > dt:after {
           }
         }
       }
+    }
+  }
+}
+
+/* meilisearch の style を上書きする */
+.meilisearch-autocomplete .dsb-dropdown-menu {
+  max-width: 60rem !important;
+
+  [class^=dsb-dataset-] {
+    width: 40rem;
+    /* left navi header 分の考慮して 300px 短くする */
+    max-height: calc(100vh - 300px);
+    border: 1px solid $shiguredo-color!important;
+    border-radius: 0!important;
+  }
+
+  .docs-searchbar-suggestion--category-header {
+    border-bottom: 1px solid $shiguredo-color;
+  }
+  .docs-searchbar-footer {
+    height: 24px;
+
+    img {
+      margin: 0 0 4px 0;
     }
   }
 }
