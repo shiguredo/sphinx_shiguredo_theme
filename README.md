@@ -30,7 +30,18 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 
 ## 検索
 
-[Meilisearch](https://www.meilisearch.com/) を利用している。
+[Meilisearch](https://www.meilisearch.com/) を利用可能。
+
+conf.py に Meilisearch の設定を追加すると利用可能になる。
+
+```python
+html_theme_options = {
+    'meilisearch': True,
+    'meilisearch_api_key': 'xxx',
+    'meilisearch_host_url': 'https://meilisearch.example.com/',
+    'meilisearch_index_uid': 'docs'
+}
+```
 
 [![Image from Gyazo](https://i.gyazo.com/79fe92ce9c8b6e8941dc747428e884a6.gif)](https://gyazo.com/79fe92ce9c8b6e8941dc747428e884a6)
 
