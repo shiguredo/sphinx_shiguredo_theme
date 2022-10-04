@@ -1,6 +1,6 @@
 {
   "name": "sphinx_shiguredo_theme",
-  "version": "0.0.0",
+  "version": "2022.1.0",
   "private": true,
   "scripts": {
     "build": "yarn _build/sass && yarn _build/typescript",
