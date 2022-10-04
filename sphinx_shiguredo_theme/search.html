@@ -1,0 +1,33 @@
+{%- extends "basic/search.html" %}
+
+{% block content %}
+<div class="content search-page {{' with-attention-message' if theme_attention_message}}">
+  <section>
+    {% if search_performed %}
+      <h2>{{ _('Search Results') }}</h2>
+      {% if not search_results %}
+        <p>{{ _('Your search did not match any documents. Please make sure that all words are spelled correctly and that you\'ve selected enough categories.') }}</p>
+      {% endif %}
+    {% endif %}
+    <div id="search-results">
+    </div>
+  </section>
+  <footer>
+    {%- if show_copyright %}
+    {%- if hasdoc('copyright') %}
+    <span>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}</span>
+    {%- else %}
+    <span>&#169; Copyright {{ copyright }}</span>
+    {%- endif %}
+    {%- endif %}
+
+    {%- if last_updated %}
+    <span>Last updated on {{ last_updated }}</span>
+    {%- endif %}
+
+    {%- if show_sphinx %}
+    <span>Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}</span>
+    {%- endif %}
+  </footer>
+</div>
+{% endblock %}

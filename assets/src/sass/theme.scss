@@ -1,0 +1,771 @@
+@import "../../node_modules/normalize.css/normalize";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+$shiguredo-color: #036eb7;
+$active-color: #01304f;
+$current-background-color: #eeeeee;
+$caption-color: #343131;
+$root-background-color: #c1e4e9;
+$sidenavi-width: 22rem;
+$main-width: 60rem;
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto!important;
+  }
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+  line-height: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: $shiguredo-color;
+
+  &.headerlink {
+    margin-left: 1rem;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid $shiguredo-color;
+  border-left: 8px solid $shiguredo-color;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid $shiguredo-color;
+  border-left: 4px solid $shiguredo-color;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.25rem;
+  border-left: 5px double $shiguredo-color;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.25rem;
+  border-left: 2px double $shiguredo-color;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 1.25rem;
+  border-left: 1px double $shiguredo-color;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+dl {
+  display: block;
+  margin: 1rem 0;
+
+  dt {
+  }
+
+  dd {
+    margin-left: 2rem;
+  }
+}
+
+table.docutils {
+  @extend .table;
+  @extend .table-striped;
+
+  th {
+    background-color: $shiguredo-color;
+    color: $white;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-bottom-color: black !important;
+  }
+
+  td {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    text-align: left;
+  }
+}
+
+code.docutils {
+  font-size: 1rem!important;
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #bbbbbb;
+  background-color: #f9f9f9;
+  color: #d72500;
+}
+
+footer {
+  margin-top: 90vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  color: $caption-color;
+  border-top: 1px solid gray;
+
+  & > span {
+    margin-left: 0.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+img {
+  margin: 1rem 0;
+}
+
+.navbar {
+  display: none;
+  background-color: $shiguredo-color;
+  color: white;
+
+  .navbar-collapse {
+    margin-top: 1rem;
+    height: 90vh;
+    overflow-y: auto;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    & > li {
+      & > a {
+        color: white;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 0.3rem 1rem;
+
+        &.current {
+          // TODO: 現在表示中の toctree のスタイルを調整する
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// docutils がコロンを HTML として出力するようになったので CSS でコロンを生成しないようにする
+dl.field-list > dt:after {
+  content: "";
+}
+
+.table_wrapper {
+  @extend .table-responsive;
+
+  padding: 0;
+}
+
+.highlight {
+  & > pre {
+    padding: 0.5rem;
+    background-color: #eeeeee;
+  }
+}
+
+.caption {
+  color: $caption-color;
+  margin: 1.5rem 0 0.5rem 1rem;
+  font-weight: 900;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.code-block-caption {
+  padding: 0 !important;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: unset !important;
+}
+
+.admonition {
+  $admonition-color: #0095d9;
+  background-color: rgba($admonition-color, 0.1);
+  border: 1px solid $admonition-color;
+  padding: 0 !important;
+  border-radius: 0.25rem;
+
+  & > .admonition-title {
+    background-color: $admonition-color;
+    color: $white;
+  }
+
+  & > p {
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  &.attention,
+  &.caution,
+  &.warning {
+    $warning-color: #f08300;
+    background-color: rgba($warning-color, 0.1);
+    border: 1px solid $warning-color;
+
+    & > .admonition-title {
+      background-color: $warning-color;
+    }
+  }
+
+  &.danger,
+  &.error {
+    $warning-color: #e60033;
+    background-color: rgba($warning-color, 0.1);
+    border: 1px solid $warning-color;
+
+    & > .admonition-title {
+      background-color: $warning-color;
+    }
+  }
+
+  &.hint,
+  &.important,
+  &.tip {
+    $warning-color: #3eb370;
+    background-color: rgba($warning-color, 0.1);
+    border: 1px solid $warning-color;
+
+    & > .admonition-title {
+      background-color: $warning-color;
+    }
+  }
+}
+
+.search-page {
+  #search-results {
+    & > .search-summary {
+      padding: 1rem 0;
+      border-bottom: 1px solid gray;
+    }
+
+    & > ul.search {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      list-style-image: none;
+
+      & > li {
+        background-image: none;
+        padding: 2rem 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid gray;
+
+        & > .context {
+          margin: 1rem 0 0 0;
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
+#root {
+  display: flex;
+  min-height: 100%;
+  background-color: $root-background-color;
+}
+
+#attention-message {
+  position: fixed;
+  width: calc(#{$main-width} + (#{$sidenavi-width} * 2) - 2px);
+  z-index: 10;
+  background-color: red;
+  top: 0;
+  left: calc(((100% - #{$main-width} - (#{$sidenavi-width} * 2)) / 2) + 1px);
+  height: 2rem;
+  font-size: 1rem;
+  color: #664d03;
+  background-color: #ffe761;
+  border-bottom: 1px solid $shiguredo-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.left-sidenavi-header.with-attention-message {
+  padding-top: 3rem !important;
+  height: calc(256px + 3rem);
+}
+
+.content.with-attention-message {
+  & > section {
+    &:before {
+      content: " ";
+      margin-top: 0;
+      height: 3rem;
+      display: block;
+      visibility: hidden;
+    }
+
+    & section {
+      &:before {
+        content: " ";
+        margin-top: -2.5rem;
+        height: 2.5rem;
+        display: block;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.right-sidenavi-header.with-attention-message {
+  padding-top: 2rem !important;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  padding: 0 2em;
+  width: $main-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid $shiguredo-color;
+  border-left: 1px solid $shiguredo-color;
+  background-color: $white;
+
+  & > section {
+    &:before {
+      content: " ";
+      margin-top: 0;
+      height: 1rem;
+      display: block;
+      visibility: hidden;
+    }
+
+    & section {
+      &:before {
+        content: " ";
+        margin-top: -1rem;
+        height: 1rem;
+        display: block;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.not-found {
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 8rem;
+    color: $shiguredo-color;
+    border-bottom: 3px solid $shiguredo-color;
+    border-left: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 4rem;
+    color: $shiguredo-color;
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
+.left-sidenavi {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  width: calc((100% - #{$main-width}) / 2);
+  min-width: $sidenavi-width;
+}
+
+.left-sidenavi-container {
+  box-sizing: border-box;
+  width: $sidenavi-width;
+  border-left: 1px solid $shiguredo-color;
+}
+
+.left-sidenavi-sticky,
+.right-sidenavi-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+}
+
+.left-sidenavi-header {
+  background-color: $shiguredo-color;
+  padding: 1rem;
+  height: 256px;
+
+  &-logo {
+    display: flex;
+    justify-content: center;
+
+    & > div {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &-brand {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+
+    & > a {
+      color: $white;
+      font-size: 1.25rem;
+
+      &:hover {
+        background-color: rgba($white, 0.1);
+      }
+    }
+  }
+
+  &-version {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+
+    & > span {
+      color: $white;
+      font-size: 1.25rem;
+    }
+  }
+
+  &-search {
+    & > .meilisearch-box {
+      position: relative;
+
+      .meilisearch-autocomplete {
+        width: 100%;
+
+        input {
+          width: 100%;
+          cursor: text;
+          display: inline-block;
+          border: 1px solid #d2c9da;
+          border-radius: 0.5rem;
+          font-size: 1.25rem;
+          line-height: 2rem;
+          padding: 0 0.5rem 0 2rem;
+          outline: none;
+          background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-search' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><circle cx='10' cy='10' r='7' style='stroke: rgb(71, 48, 165);'></circle><line x1='21' y1='21' x2='15' y2='15' style='stroke: rgb(71, 48, 165);'></line></svg>") no-repeat 0.5rem 0.45rem;
+          background-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
+
+.left-sidenavi-body.with-attention-message {
+  min-height: calc(100vh - 256px - 3rem);
+}
+
+.left-sidenavi-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  min-height: calc(100vh - 256px);
+
+  .left-sidenavi-contents {
+    margin-top: 0.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .toctree-l1 {
+      &.current {
+        background-color: $current-background-color;
+      }
+      & > a {
+        font-weight: 700;
+
+        &::before {
+          display: inline-block;
+          margin-right: 0.5rem;
+          position: relative;
+          top: 2px;
+          content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(3,110,183,1)' class='bi bi-chevron-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+
+      & > a.current::before {
+        transform: rotate(90deg);
+        top: 10px;
+      }
+    }
+
+    .toctree-l2 {
+      margin-left: 1.5rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      & > li {
+        & > a {
+          box-sizing: border-box;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          padding: 0.1rem 1rem;
+
+          &:hover {
+            color: $active-color;
+            text-decoration: underline $active-color;
+          }
+        }
+      }
+    }
+  }
+
+  .left-sidenavi-underline {
+    hr {
+      height: 0.5rem;
+      margin: 1rem 0 0 0;
+      opacity: 1;
+      color: $shiguredo-color;
+    }
+  }
+}
+
+.right-sidenavi {
+  box-sizing: border-box;
+  width: $sidenavi-width;
+  border-right: 1px solid $shiguredo-color;
+}
+
+.right-sidenavi-header {
+  padding: 0.3rem 1rem;
+  color: $caption-color;
+  font-weight: 700;
+}
+
+.right-sidenavi-contents {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 0.5rem 0 1rem 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > ul {
+    margin: 0;
+    padding: 0 1rem;
+    list-style: none;
+
+    & > li {
+      & > a:first-child {
+        display: none;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        & > li {
+          & > a {
+            box-sizing: border-box;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+
+            &:hover {
+              color: $active-color;
+              text-decoration: underline $active-color;
+            }
+
+            &.current {
+              background-color: $current-background-color;
+            }
+          }
+
+          & ul {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* meilisearch の style を上書きする */
+.meilisearch-autocomplete .dsb-dropdown-menu {
+  max-width: 60rem !important;
+
+  [class^=dsb-dataset-] {
+    width: 40rem;
+    /* left navi header 分の考慮して 300px 短くする */
+    max-height: calc(100vh - 300px);
+    border: 1px solid $shiguredo-color!important;
+    border-radius: 0!important;
+  }
+
+  .docs-searchbar-suggestion--category-header {
+    border-bottom: 1px solid $shiguredo-color;
+  }
+  .docs-searchbar-footer {
+    height: 24px;
+
+    img {
+      margin: 0 0 4px 0;
+    }
+  }
+}
+
+@media (max-width: calc(#{$main-width} + #{$sidenavi-width} + #{$sidenavi-width})) {
+  .left-sidenavi {
+    width: calc(
+      ((100% - #{$main-width} - #{$sidenavi-width}) / 2) + #{$sidenavi-width}
+    );
+  }
+
+  #attention-message {
+    width: calc(#{$main-width} + #{$sidenavi-width} - 2px);
+    left: calc(((100% - #{$main-width} - #{$sidenavi-width}) / 2) + 1px);
+  }
+
+  .right-sidenavi {
+    display: none;
+  }
+}
+
+@media (max-width: calc(#{$main-width} + #{$sidenavi-width})) {
+  .main {
+    .content {
+      width: calc(100vw - #{$sidenavi-width});
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #root {
+    background-color: $white;
+  }
+
+  .main {
+    width: 100%;
+    margin-top: 3.5rem;
+    justify-content: center;
+
+    .content {
+      width: 100%;
+    }
+  }
+
+  .left-sidenavi,
+  .right-sidenavi {
+    display: none;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .caption {
+    color: $black;
+  }
+
+  h1 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  #attention-message {
+    left: 1px;
+    width: calc(100% - 2px);
+    font-size: 1rem;
+    top: 56px;
+  }
+}

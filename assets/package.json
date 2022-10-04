@@ -1,0 +1,24 @@
+{
+  "name": "sphinx_shiguredo_theme",
+  "version": "2022.1.0",
+  "private": true,
+  "scripts": {
+    "build": "yarn _build/sass && yarn _build/typescript",
+    "_build/sass": "npx sass ./src/sass/theme.scss ../sphinx_shiguredo_theme/static/css/theme.css",
+    "_build/typescript": "npx rollup -c",
+    "fmt": "prettier --write ./src"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "bootstrap": "^5.2.0",
+    "normalize.css": "^8.0.1",
+    "prettier": "^2.7.1",
+    "rollup": "^2.78.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "sass": "^1.54.4",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
+}
