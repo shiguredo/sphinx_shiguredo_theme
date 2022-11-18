@@ -22,7 +22,8 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 - https://sora-js-sdk.shiguredo.jp/
 - https://sora-ios-sdk.shiguredo.jp/
 - https://sora-android-sdk.shiguredo.jp/
-- https://tobi.shiguredo.app/
+- https://sora-unity-sdk.shiguredo.jp/
+
 
 ## デプロイ
 
