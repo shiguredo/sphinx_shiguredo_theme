@@ -23,7 +23,7 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 - https://sora-ios-sdk.shiguredo.jp/
 - https://sora-android-sdk.shiguredo.jp/
 - https://sora-unity-sdk.shiguredo.jp/
-
+- https://doc.sora-cloud.shiguredo.app/
 
 ## デプロイ
 
