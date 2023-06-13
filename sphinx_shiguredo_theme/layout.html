@@ -1,242 +1,180 @@
 <!DOCTYPE html>
 <html lang="ja">
-  {%- set url_root = pathto('', 1) %} {%- if url_root == '#' %}{% set url_root =
-  '' %}{% endif %} {%- macro css() %}
-  <link
-    rel="stylesheet" href="/{{ pathto('_static/pygments.css', 1) }}"
-    type="text/css"
-  />
-  <link
-    rel="stylesheet"
-    href="/{{ pathto('_static/basic.css', 1) }}"
-    type="text/css"
-  />
-  <link
-    rel="stylesheet"
-    href="/{{ pathto('_static/' + style, 1)|e }}"
-    type="text/css"
-  />
-  {%- for css in css_files %} {%- if css|attr("filename") %} {{ css_tag(css) }}
+{%- set url_root = pathto('', 1) %} {%- if url_root == '#' %}{% set url_root =
+'' %}{% endif %} {%- macro css() %}
+<link rel="stylesheet" href="/{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
+<link rel="stylesheet" href="/{{ pathto('_static/basic.css', 1) }}" type="text/css" />
+<link rel="stylesheet" href="/{{ pathto('_static/' + style, 1)|e }}" type="text/css" />
+{%- for css in css_files %} {%- if css|attr("filename") %} {{ css_tag(css) }}
+{%- else %}
+<link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+{%- endif %} {%- endfor %} {%- endmacro %} {%- macro script() %}
+<script id="documentation_options" data-url_root="{{ url_root }}"
+  src="/{{ pathto('_static/documentation_options.js', 1) }}"></script>
+{%- for js in script_files %} {{ js_tag(js) }} {%- endfor %} {%- endmacro %}
+
+<head>
+  {%- if not html5_doctype and not skip_ua_compatible %}
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  {%- endif %} {%- if use_meta_charset or html5_doctype %}
+  <meta charset="{{ encoding }}" />
   {%- else %}
-  <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
-  {%- endif %} {%- endfor %} {%- endmacro %} {%- macro script() %}
-  <script
-    id="documentation_options"
-    data-url_root="{{ url_root }}"
-    src="/{{ pathto('_static/documentation_options.js', 1) }}"
-  ></script>
-  {%- for js in script_files %} {{ js_tag(js) }} {%- endfor %} {%- endmacro %}
+  <meta http-equiv="Content-Type" content="text/html; charset={{ encoding }}" />
+  {%- endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{- metatags }} {%- block htmltitle %}
+  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  {%- endblock %} {%- block css %} {{- css() }} {%- endblock %} {%- if not
+  embedded %} {%- block scripts %} {{- script() }} {%- endblock %} {%- if
+  pageurl %}
+  <link rel="canonical" href="{{ pageurl|e }}" />
+  {%- endif %} {%- if use_opensearch %}
+  <link rel="search" type="application/opensearchdescription+xml"
+    title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
+    href="/{{ pathto('_static/opensearch.xml', 1) }}" />
+  {%- endif %} {%- if favicon_url %}
+  <link rel="shortcut icon" href="/{{ pathto('_static/' + favicon_url, 1)|e }}" />
+  {%- endif %} {%- endif %} {%- block linktags %} {%- if hasdoc('about') %}
+  <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+  {%- endif %} {%- if hasdoc('genindex') %}
+  <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+  {%- endif %} {%- if hasdoc('search') %}
+  <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+  {%- endif %} {%- if hasdoc('copyright') %}
+  <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+  {%- endif %} {%- if next %}
+  <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+  {%- endif %} {%- if prev %}
+  <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+  {%- endif %} {%- if theme_meilisearch %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.2.0/dist/cdn/docs-searchbar.min.css" />
+  {%- endif %} {%- endblock %} {%- block extrahead %} {% endblock %}
+</head>
 
-  <head>
-    {%- if not html5_doctype and not skip_ua_compatible %}
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    {%- endif %} {%- if use_meta_charset or html5_doctype %}
-    <meta charset="{{ encoding }}" />
-    {%- else %}
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset={{ encoding }}"
-    />
-    {%- endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{- metatags }} {%- block htmltitle %}
-    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-    {%- endblock %} {%- block css %} {{- css() }} {%- endblock %} {%- if not
-    embedded %} {%- block scripts %} {{- script() }} {%- endblock %} {%- if
-    pageurl %}
-    <link rel="canonical" href="{{ pageurl|e }}" />
-    {%- endif %} {%- if use_opensearch %}
-    <link
-      rel="search"
-      type="application/opensearchdescription+xml"
-      title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-      href="/{{ pathto('_static/opensearch.xml', 1) }}"
-    />
-    {%- endif %} {%- if favicon %}
-    <link rel="shortcut icon" href="/{{ pathto('_static/' + favicon, 1)|e }}" />
-    {%- endif %} {%- endif %} {%- block linktags %} {%- if hasdoc('about') %}
-    <link
-      rel="author"
-      title="{{ _('About these documents') }}"
-      href="{{ pathto('about') }}"
-    />
-    {%- endif %} {%- if hasdoc('genindex') %}
-    <link
-      rel="index"
-      title="{{ _('Index') }}"
-      href="{{ pathto('genindex') }}"
-    />
-    {%- endif %} {%- if hasdoc('search') %}
-    <link
-      rel="search"
-      title="{{ _('Search') }}"
-      href="{{ pathto('search') }}"
-    />
-    {%- endif %} {%- if hasdoc('copyright') %}
-    <link
-      rel="copyright"
-      title="{{ _('Copyright') }}"
-      href="{{ pathto('copyright') }}"
-    />
-    {%- endif %} {%- if next %}
-    <link
-      rel="next"
-      title="{{ next.title|striptags|e }}"
-      href="{{ next.link|e }}"
-    />
-    {%- endif %} {%- if prev %}
-    <link
-      rel="prev"
-      title="{{ prev.title|striptags|e }}"
-      href="{{ prev.link|e }}"
-    />
-    {%- endif %} {%- if theme_meilisearch %}
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.2.0/dist/cdn/docs-searchbar.min.css"
-    />
-    {%- endif %} {%- endblock %} {%- block extrahead %} {% endblock %}
-  </head>
-  <body>
-    <div id="root">
-      {% if theme_attention_message %}
-      <div id="attention-message">
-        <span>{{theme_attention_message}}</span>
+<body>
+  <div id="root">
+    {% if theme_attention_message %}
+    <div id="attention-message">
+      <span>{{theme_attention_message}}</span>
+    </div>
+    {% endif %}
+    {% block left_sidenavi %}
+    <aside class="left-sidenavi">
+      <div class="left-sidenavi-container">
+        <div class="left-sidenavi-sticky">
+          <div class="left-sidenavi-header{{' with-attention-message' if theme_attention_message}}">
+            <div class="left-sidenavi-header-logo">
+              {%- if logo_url %}
+              <div>
+                <img class="logo" src="/{{ pathto('_static/' + logo_url, 1)|e }}" alt="Logo" />
+              </div>
+              {%- endif %}
+            </div>
+            <div class="left-sidenavi-header-brand">
+              <a href="/">{{ project }}</a>
+            </div>
+            <div class="left-sidenavi-header-version">
+              <span>{{ version }}</span>
+            </div>
+
+            <div class="left-sidenavi-header-search">
+              {% if theme_meilisearch %}
+              <div class="meilisearch-box">
+                <input id="meilisearch" type="text" placeholder="search" name="q" />
+              </div>
+              {% else %}
+              <form class="row search" action="{{ pathto('search') }}" method="GET">
+                <div class="input-group">
+                  <input type="text" class="form-control form-control-sm" placeholder="search"
+                    aria-labelledby="searchlabel" name="q" />
+                  <input type="submit" class="btn btn-sm btn-dark" value="{{ _('Go') }}" />
+                </div>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+          <div class="left-sidenavi-body{{' with-attention-message' if theme_attention_message}}">
+            <div class="left-sidenavi-contents">
+              {{ toctree(maxdepth=2) }}
+            </div>
+            <div class="left-sidenavi-underline">
+              <hr />
+            </div>
+          </div>
+        </div>
       </div>
-      {% endif %}
-      {% block left_sidenavi %}
-      <aside class="left-sidenavi">
-        <div class="left-sidenavi-container">
-          <div class="left-sidenavi-sticky">
-            <div class="left-sidenavi-header{{' with-attention-message' if theme_attention_message}}">
-              <div class="left-sidenavi-header-logo">
-                {%- if logo %}
-                <div>
-                  <img class="logo" src="/{{ pathto('_static/' + logo, 1)|e }}" alt="Logo" />
-                </div>
-                {%- endif %}
-              </div>
-              <div class="left-sidenavi-header-brand">
-                <a href="/">{{ project }}</a>
-              </div>
-              <div class="left-sidenavi-header-version">
-                <span>{{ version }}</span>
-              </div>
+    </aside>
+    {% endblock %}
 
-              <div class="left-sidenavi-header-search">
-                {% if theme_meilisearch %}
-                <div class="meilisearch-box">
-                  <input
-                    id="meilisearch"
-                    type="text"
-                    placeholder="search"
-                    name="q"
-                    />
-                </div>
-                {% else %}
-                <form
-                  class="row search"
-                  action="{{ pathto('search') }}"
-                  method="GET"
-                >
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      placeholder="search"
-                      aria-labelledby="searchlabel"
-                      name="q"
-                    />
-                    <input
-                      type="submit"
-                      class="btn btn-sm btn-dark"
-                      value="{{ _('Go') }}"
-                    />
-                  </div>
-                </form>
-                {% endif %}
-              </div>
+    <nav class="navbar navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ project }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          {{ toctree(maxdepth=1) }}
+        </div>
+      </div>
+    </nav>
+
+    <main class="main" role="main">
+      {% block content %}
+      <div class="content{{' with-attention-message' if theme_attention_message}}">
+        {% block body %} {% endblock %}
+        {%- block footer %}
+        <footer>
+          {%- if show_copyright %}
+          {%- if hasdoc('copyright') %}
+          <span>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}</span>
+          {%- else %}
+          <span>&#169; Copyright {{ copyright }}</span>
+          {%- endif %}
+          {%- endif %}
+
+          {%- if last_updated %}
+          <span>Last updated on {{ last_updated }}</span>
+          {%- endif %}
+
+          {%- if show_sphinx %}
+          <span>Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}</span>
+          {%- endif %}
+        </footer>
+        {%- endblock %}
+      </div>
+      {% endblock %}
+
+      {% block right_sidenavi %}
+      <aside class="right-sidenavi">
+        <div class="right-sidenavi-sticky">
+          <div class="right-sidenavi-contents">
+            <div class="right-sidenavi-header{{' with-attention-message' if theme_attention_message}}">
+              <span>コンテンツ</span>
             </div>
-            <div class="left-sidenavi-body{{' with-attention-message' if theme_attention_message}}">
-              <div class="left-sidenavi-contents">
-                {{ toctree(maxdepth=2) }}
-              </div>
-              <div class="left-sidenavi-underline">
-                <hr />
-              </div>
-            </div>
+            {{ toc }}
           </div>
         </div>
       </aside>
-      {% endblock %}
-
-      <nav class="navbar navbar-dark fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">{{ project }}</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            {{ toctree(maxdepth=1) }}
-          </div>
-        </div>
-      </nav>
-
-      <main class="main" role="main">
-        {% block content %}
-        <div class="content{{' with-attention-message' if theme_attention_message}}">
-          {% block body %} {% endblock %}
-          {%- block footer %}
-          <footer>
-            {%- if show_copyright %}
-              {%- if hasdoc('copyright') %}
-              <span>&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}</span>
-              {%- else %}
-              <span>&#169; Copyright {{ copyright }}</span>
-              {%- endif %}
-            {%- endif %}
-
-            {%- if last_updated %}
-            <span>Last updated on {{ last_updated }}</span>
-            {%- endif %}
-
-            {%- if show_sphinx %}
-            <span>Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}</span>
-            {%- endif %}
-          </footer>
-          {%- endblock %}
-        </div>
-        {% endblock %}
-
-        {% block right_sidenavi %}
-        <aside class="right-sidenavi">
-          <div class="right-sidenavi-sticky">
-            <div class="right-sidenavi-contents">
-              <div class="right-sidenavi-header{{' with-attention-message' if theme_attention_message}}">
-                <span>コンテンツ</span>
-              </div>
-              {{ toc }}
-            </div>
-          </div>
-        </aside>
-        {%- endblock %}
-      </main>
-    </div>
-    <script src="/{{ pathto('_static/js/theme.js', 1) }}"></script>
-    <script src="/{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
-    {% if theme_meilisearch %}
-    <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.5.0/dist/cdn/docs-searchbar.min.js"></script>
-    <script>
-      docsSearchBar({
-        hostUrl: "{{ theme_meilisearch_host_url }}",
-        apiKey: "{{ theme_meilisearch_api_key }}",
-        indexUid: "{{ theme_meilisearch_index_uid }}",
-        inputSelector: "#meilisearch",
-        meilisearchOptions: {
-          limit: {{ theme_meilisearch_options_limit }},
+      {%- endblock %}
+    </main>
+  </div>
+  <script src="/{{ pathto('_static/js/theme.js', 1) }}"></script>
+  <script src="/{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+  {% if theme_meilisearch %}
+  <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.5.0/dist/cdn/docs-searchbar.min.js"></script>
+  <script>
+    docsSearchBar({
+      hostUrl: "{{ theme_meilisearch_host_url }}",
+      apiKey: "{{ theme_meilisearch_api_key }}",
+      indexUid: "{{ theme_meilisearch_index_uid }}",
+      inputSelector: "#meilisearch",
+      meilisearchOptions: {
+        limit: {{ theme_meilisearch_options_limit }},
         },
       })
-    </script>
-    {% endif %}
-  </body>
+  </script>
+  {% endif %}
+</body>
+
 </html>
