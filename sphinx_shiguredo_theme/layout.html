@@ -66,7 +66,7 @@
             <div class="left-sidenavi-header-logo">
               {%- if logo_url %}
               <div>
-                <img class="logo" src="/{{ pathto('_static/' + logo_url, 1)|e }}" alt="Logo" />
+                <img class="logo" src="{{  logo_url|e }}" alt="Logo" />
               </div>
               {%- endif %}
             </div>
