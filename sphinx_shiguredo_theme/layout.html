@@ -33,7 +33,7 @@
     title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
     href="/{{ pathto('_static/opensearch.xml', 1) }}" />
   {%- endif %} {%- if favicon_url %}
-  <link rel="shortcut icon" href="/{{ pathto('_static/' + favicon_url, 1)|e }}" />
+  <link rel="shortcut icon" href="/{{ favicon_url|e }}" />
   {%- endif %} {%- endif %} {%- block linktags %} {%- if hasdoc('about') %}
   <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
   {%- endif %} {%- if hasdoc('genindex') %}
