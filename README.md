@@ -49,8 +49,9 @@ html_theme_options = {
 ## ライセンス
 
 ```
+Copyright 2021-2023, Shiguredo Inc.
 Copyright 2021-2022, Yuki Ito (Original Author)
-Copyright 2021-2022, Shiguredo Inc.
+
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
