@@ -61,6 +61,7 @@
     if (locationHash === "") {
         return;
     }
+
     // アンカーが実在することを確認しておく
     const anchor = document.getElementById(locationHash.slice(1));  // 先頭の # を除去
     if (anchor === null) {
@@ -68,6 +69,9 @@
     }
 
     const mermaidNodes = [...document.querySelectorAll("div.mermaid")];
+    if (mermaidNodes.length === 0) {
+        return;
+    }
 
     // すべての mermaid 要素のレンダリングが完了したら、ずれを補正するため
     // もう一度 anchor 位置に移動する。
