@@ -76,14 +76,31 @@
     // すべての mermaid 要素のレンダリングが完了したら、ずれを補正するため
     // もう一度 anchor 位置に移動する。
     const mutationCallback = (mutationList, observer) => {
+        const initialHeight = document.documentElement.scrollHeight;
         for (const mutation of mutationList) {
             if (mutation.type === "attributes" && mutation.attributeName === "data-processed") {
                 if (mermaidNodes.every((node) => node.getAttribute("data-processed") === "true")) {
                     observer.disconnect();
                     // data-processed = true になっても、実際のレンダリングが完了していないことがある。
-                    // そのため location.replace() の実行は少し遅らせる。
-                    setTimeout(() => {
+                    // 一定期間監視して page height が変化しなくなったらレンダリング完了とみなす。
+                    let prevHeight = document.documentElement.scrollHeight;
+                    if (prevHeight === initialHeight) {
                         location.replace(locationHash);
+                    }
+                    let count = 0;
+
+                    const id = setInterval(() => {
+                        const currentHeight = document.documentElement.scrollHeight;
+                        if (currentHeight === prevHeight) {
+                            count++
+                            if (count === 3) {
+                                clearInterval(id);
+                            }
+                        } else {
+                            location.replace(locationHash);
+                            prevHeight = currentHeight;
+                            count = 0;
+                        }
                     }, 50);
                 }
             }
