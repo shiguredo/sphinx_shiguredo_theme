@@ -80,7 +80,11 @@
             if (mutation.type === "attributes" && mutation.attributeName === "data-processed") {
                 if (mermaidNodes.every((node) => node.getAttribute("data-processed") === "true")) {
                     observer.disconnect();
-                    location.replace(locationHash);
+                    // data-processed = true になっても、実際のレンダリングが完了していないことがある。
+                    // そのため location.replace() の実行は少し遅らせる。
+                    setTimeout(() => {
+                        location.replace(locationHash);
+                    }, 50);
                 }
             }
         }
