@@ -163,6 +163,7 @@
   <script src="/{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   {% if theme_meilisearch %}
   <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@2.5.0/dist/cdn/docs-searchbar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
   <script>
     docsSearchBar({
       hostUrl: "{{ theme_meilisearch_host_url }}",
@@ -171,8 +172,29 @@
       inputSelector: "#meilisearch",
       meilisearchOptions: {
         limit: {{ theme_meilisearch_options_limit }},
-        },
-      })
+      },
+      transformData: function(hits) {
+        const query = document.getElementById('meilisearch').value;
+
+        for (const hit of hits) {
+          const hitUrl = new URL(hit.url);
+          hitUrl.search = new URLSearchParams({query: query}).toString();
+          hit.url = hitUrl.toString();
+        }
+        return hits;
+      },
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const url = new URL(window.location.href);
+      const query = url.searchParams.get('query');
+      const input = document.getElementById('meilisearch');
+      input.value = DOMPurify.sanitize(query);
+      // WORKAROUND: 検索イベントを発火しておかないと、フォーカスから外れたときに
+      // 検索ボックスの入力内容が消えてしまう現象が発生する。
+      const event = new Event('input');
+      input.dispatchEvent(event);
+    });
   </script>
   {% endif %}
 </body>
