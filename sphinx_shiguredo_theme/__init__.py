@@ -1,13 +1,29 @@
 from collections import defaultdict
 from hashlib import sha1
 from os import path
-import re
 
 from docutils import nodes
 from sphinx.transforms.post_transforms import SphinxPostTransform
 
 
 def on_doctree_resolved(app, doctree, docname):
+    # TODO theme の __init__.py 内部で theme.conf の設定値を参照するベストの方法が
+    # 下記で合っているかどうかは不明。
+
+    # conf.py の設定があればそちらを優先する
+    if "use_hash_based_nodeid" in app.config.html_theme_options:
+        use_hash_based_nodeid = app.config.html_theme_options["use_hash_based_nodeid"]
+    else:
+        theme_options = app.builder.theme.get_options()
+        _use_hash_based_nodeid = theme_options.get("use_hash_based_nodeid")
+        if isinstance(_use_hash_based_nodeid, str):
+            use_hash_based_nodeid = _use_hash_based_nodeid.lower() == "true"
+        else:
+            use_hash_based_nodeid = bool(_use_hash_based_nodeid)
+
+    if not use_hash_based_nodeid:
+        return
+
     # add hash-based node-ID to sections
     mapping = {}
     sequences = defaultdict(int)
