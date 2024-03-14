@@ -1,9 +1,9 @@
 from collections import defaultdict
 from hashlib import sha1
 from os import path
-import re
 
 from docutils import nodes
+import sphinx.addnodes
 from sphinx.transforms.post_transforms import SphinxPostTransform
 
 
@@ -11,18 +11,29 @@ def on_doctree_resolved(app, doctree, docname):
     # add hash-based node-ID to sections
     mapping = {}
     sequences = defaultdict(int)
-    for node in doctree.traverse(nodes.section):
-        text = node.children[0].astext()
+
+    condition = lambda node: isinstance(node, (nodes.section, sphinx.addnodes.desc_signature))
+
+    for node in doctree.traverse(condition=condition):
+        # .. py ディレクティブによって作られるセクションの toctree における anchorname には _toc_name が使われる
+        if isinstance(node, sphinx.addnodes.desc_signature):
+            # NOTE: 非公開 attrtibute なので undocumented な sphinx の変更の影響を受ける可能性がある
+            text = node["_toc_name"]
+        else:
+            text = node.children[0].astext()
+
         sequences[text] += 1
         new_id = sha1("{}-{}".format(text, sequences[text]).encode("utf-8")).hexdigest()[:6]
         for node_id in node["ids"]:
             mapping[node_id] = new_id
         node["ids"].insert(0, new_id)
+
     # use hash-based node-IDs at local reference
     for node in doctree.traverse(nodes.reference):
         refid = node.get("refid")
         if refid in mapping:
             node["refid"] = mapping.get(refid)
+
     # use hash-based node-IDs at toctrees
     for _, toctree in app.env.tocs.items():
         sequences = defaultdict(int)
