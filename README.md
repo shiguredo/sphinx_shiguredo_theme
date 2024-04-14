@@ -23,6 +23,7 @@ Please read https://github.com/shiguredo/oss/blob/master/README.en.md before use
 - https://sora-ios-sdk.shiguredo.jp/
 - https://sora-android-sdk.shiguredo.jp/
 - https://sora-unity-sdk.shiguredo.jp/
+- https://sora-python-sdk.shiguredo.jp/
 - https://doc.sora-cloud.shiguredo.app/
 
 ## デプロイ
@@ -49,7 +50,7 @@ html_theme_options = {
 ## ライセンス
 
 ```
-Copyright 2021-2023, Shiguredo Inc.
+Copyright 2021-2024, Shiguredo Inc.
 Copyright 2021-2022, Yuki Ito (Original Author)
 
 
