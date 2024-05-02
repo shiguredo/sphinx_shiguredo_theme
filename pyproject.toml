@@ -1,0 +1,28 @@
+[project]
+name = "sphinx_shiguredo_theme"
+authors = [{ name = "Shiguredo Inc.", email = "contact+pypi@shiguredo.jp" }]
+version = "2024.1.0"
+description = "Sphinx Shiguredo Theme"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">= 3.11"
+
+[project.urls]
+Source = "https://github.com/shiguredo/sphinx_shiguredo_theme"
+Discord = "https://discord.gg/shiguredo"
+
+
+[build-system]
+requires = ["setuptools>=69.2", "wheel~=0.43.0"]
+
+[tool.rye]
+dev-dependencies = ["ruff>=0.4"]
+
+[tool.ruff]
+line-length = 100
