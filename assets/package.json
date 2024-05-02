@@ -15,7 +15,7 @@
     "normalize.css": "^8.0.1",
     "prettier": "^2.7.1",
     "rollup": "^2.78.0",
-    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-typescript2": "^0.32.1",
     "sass": "^1.54.4",
     "tslib": "^2.4.0",
