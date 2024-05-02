@@ -1,61 +1,59 @@
-(function () {
+;(function () {
   function setCurrentRightSideNaviReference(): void {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll('section')
     if (sections.length === 0) {
-      return;
+      return
     }
     // 現在のスクロール上部にある section を探す
-    const target = Array.from(sections).reduce(
-      (prevSection, currentSection, _i, arr) => {
-        const currentSectionRect = currentSection.getBoundingClientRect();
-        if (1 < currentSectionRect.y) {
-          arr.splice(1);
-          return prevSection;
-        }
-        return currentSection;
+    const target = Array.from(sections).reduce((prevSection, currentSection, _i, arr) => {
+      const currentSectionRect = currentSection.getBoundingClientRect()
+      if (1 < currentSectionRect.y) {
+        arr.splice(1)
+        return prevSection
       }
-    );
+      return currentSection
+    })
     if (!target) {
-      return;
+      return
     }
     // 右コンテンツナビの対象リンクに current class を設定する
-    const rightSidenavi = document.querySelector(".right-sidenavi-contents") as HTMLElement;
+    const rightSidenavi = document.querySelector('.right-sidenavi-contents') as HTMLElement
     if (rightSidenavi === null) {
-      return;
+      return
     }
-    const currentContent = rightSidenavi.querySelector("a.current");
+    const currentContent = rightSidenavi.querySelector('a.current')
     if (currentContent) {
-      currentContent.classList.remove("current");
+      currentContent.classList.remove('current')
     }
-    const nextContent = rightSidenavi.querySelector(`a[href="#${target.id}"]`);
+    const nextContent = rightSidenavi.querySelector(`a[href="#${target.id}"]`)
     if (!nextContent) {
-      return;
+      return
     }
-    if (nextContent.classList.contains("current")) {
-      return;
+    if (nextContent.classList.contains('current')) {
+      return
     }
-    nextContent.classList.add("current");
+    nextContent.classList.add('current')
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     // left navi
-    const scrollTarget = document.querySelector(".left-sidenavi-body");
+    const scrollTarget = document.querySelector('.left-sidenavi-body')
     if (!scrollTarget) {
-      return;
+      return
     }
-    const current = scrollTarget.querySelector("a.current");
+    const current = scrollTarget.querySelector('a.current')
     if (!current) {
-      return;
+      return
     }
-    const scrollTargetTop = scrollTarget?.getBoundingClientRect().top;
-    const currentTop = current.getBoundingClientRect().top;
-    scrollTarget.scrollTo(0, currentTop - scrollTargetTop);
+    const scrollTargetTop = scrollTarget?.getBoundingClientRect().top
+    const currentTop = current.getBoundingClientRect().top
+    scrollTarget.scrollTo(0, currentTop - scrollTargetTop)
 
     // right navi
-    setCurrentRightSideNaviReference();
-  });
+    setCurrentRightSideNaviReference()
+  })
 
-  window.addEventListener("scroll", (_) => {
-    setCurrentRightSideNaviReference();
-  });
-})();
+  window.addEventListener('scroll', (_) => {
+    setCurrentRightSideNaviReference()
+  })
+})()
