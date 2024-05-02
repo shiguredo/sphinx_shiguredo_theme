@@ -12,7 +12,9 @@ def on_doctree_resolved(app, doctree, docname):
     mapping = {}
     sequences = defaultdict(int)
 
-    condition = lambda node: isinstance(node, (nodes.section, sphinx.addnodes.desc_signature))
+    condition = lambda node: isinstance(
+        node, (nodes.section, sphinx.addnodes.desc_signature)
+    )
 
     for node in doctree.traverse(condition=condition):
         # .. py ディレクティブによって作られるセクションの toctree における anchorname には _toc_name が使われる
@@ -23,7 +25,9 @@ def on_doctree_resolved(app, doctree, docname):
             text = node.children[0].astext()
 
         sequences[text] += 1
-        new_id = sha1("{}-{}".format(text, sequences[text]).encode("utf-8")).hexdigest()[:6]
+        new_id = sha1(
+            "{}-{}".format(text, sequences[text]).encode("utf-8")
+        ).hexdigest()[:6]
         for node_id in node["ids"]:
             mapping[node_id] = new_id
         node["ids"].insert(0, new_id)
@@ -41,7 +45,9 @@ def on_doctree_resolved(app, doctree, docname):
             if node.get("internal") and node.get("anchorname"):
                 text = node.astext()
                 sequences[text] += 1
-                new_id = sha1("{}-{}".format(text, sequences[text]).encode("utf-8")).hexdigest()[:6]
+                new_id = sha1(
+                    "{}-{}".format(text, sequences[text]).encode("utf-8")
+                ).hexdigest()[:6]
                 node["anchorname"] = "#" + new_id
 
 
@@ -61,6 +67,7 @@ class TableWrapperTransform(SphinxPostTransform):
             node.parent.insert(pos, table_wrapper)
             node.parent.remove(node)
             table_wrapper += node
+
 
 def setup(app):
     app.add_html_theme("sphinx_shiguredo_theme", path.abspath(path.dirname(__file__)))
