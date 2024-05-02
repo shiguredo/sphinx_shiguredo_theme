@@ -1,4 +1,4 @@
-;(function () {
+;(() => {
   function setCurrentRightSideNaviReference(): void {
     const sections = document.querySelectorAll('section')
     if (sections.length === 0) {

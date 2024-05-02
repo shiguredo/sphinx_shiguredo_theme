@@ -6,6 +6,7 @@
     "build": "yarn _build/sass && yarn _build/typescript",
     "_build/sass": "npx sass ./src/sass/theme.scss ../sphinx_shiguredo_theme/static/css/theme.css",
     "_build/typescript": "npx rollup -c",
+    "lint": "biome lint ./src",
     "fmt": "biome format --write ./src"
   },
   "devDependencies": {
