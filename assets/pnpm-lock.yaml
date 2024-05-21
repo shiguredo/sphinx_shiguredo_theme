@@ -36,8 +36,8 @@ importers:
         specifier: 0.36.0
         version: 0.36.0(rollup@4.17.2)(typescript@5.4.5)
       sass:
-        specifier: 1.76.0
-        version: 1.76.0
+        specifier: 1.77.2
+        version: 1.77.2
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -530,8 +530,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  sass@1.76.0:
-    resolution: {integrity: sha512-nc3LeqvF2FNW5xGF1zxZifdW3ffIz5aBb7I7tSvOoNu7z1RQ6pFt9MBuiPtjgaI62YWrM/txjWlOCFiGtf2xpw==}
+  sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -1052,7 +1052,7 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  sass@1.76.0:
+  sass@1.77.2:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.5
