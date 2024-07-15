@@ -15,7 +15,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "bootstrap": "5.3.3",
     "normalize.css": "8.0.1",
-    "prettier": "3.2.5",
+    "prettier": "3.3.3",
     "rollup": "4.17.2",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-typescript2": "0.36.0",
