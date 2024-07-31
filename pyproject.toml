@@ -22,7 +22,7 @@ Discord = "https://discord.gg/shiguredo"
 requires = ["setuptools>=69.2", "wheel~=0.43.0"]
 
 [tool.rye]
-dev-dependencies = ["ruff>=0.4"]
+dev-dependencies = ["ruff>=0.5"]
 
 [tool.ruff]
 line-length = 100
