@@ -54,25 +54,21 @@
         setCurrentRightSideNaviReference();
     });
 })();
-
 // mermaid のレンダリングが非同期で行われ、アンカー位置が当初とずれてしまう問題への対応
-(function(){
+(function () {
     const locationHash = window.location.hash;
     if (locationHash === "") {
         return;
     }
-
     // アンカーが実在することを確認しておく
-    const anchor = document.getElementById(locationHash.slice(1));  // 先頭の # を除去
+    const anchor = document.getElementById(locationHash.slice(1)); // 先頭の # を除去
     if (anchor === null) {
         return;
     }
-
     const mermaidNodes = [...document.querySelectorAll("div.mermaid")];
     if (mermaidNodes.length === 0) {
         return;
     }
-
     // すべての mermaid 要素のレンダリングが完了したら、ずれを補正するため
     // もう一度 anchor 位置に移動する。
     const mutationCallback = (mutationList, observer) => {
@@ -88,15 +84,15 @@
                         location.replace(locationHash);
                     }
                     let count = 0;
-
                     const id = setInterval(() => {
                         const currentHeight = document.documentElement.scrollHeight;
                         if (currentHeight === prevHeight) {
-                            count++
+                            count++;
                             if (count === 3) {
                                 clearInterval(id);
                             }
-                        } else {
+                        }
+                        else {
                             location.replace(locationHash);
                             prevHeight = currentHeight;
                             count = 0;
@@ -105,7 +101,7 @@
                 }
             }
         }
-    }
+    };
     const mutationObserver = new MutationObserver(mutationCallback);
     mermaidNodes.forEach((node) => {
         mutationObserver.observe(node, {
