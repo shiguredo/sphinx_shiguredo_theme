@@ -57,3 +57,69 @@
     setCurrentRightSideNaviReference()
   })
 })()
+
+// mermaid のレンダリングが非同期で行われ、アンカー位置が当初とずれてしまう問題への対応
+;(() => {
+  const locationHash = window.location.hash
+  if (locationHash === '') {
+    return
+  }
+
+  // アンカーが実在することを確認しておく
+  const anchor = document.getElementById(locationHash.slice(1)) // 先頭の # を除去
+  if (anchor === null) {
+    return
+  }
+
+  const mermaidNodes = [...document.querySelectorAll('div.mermaid')]
+  if (mermaidNodes.length === 0) {
+    return
+  }
+
+  // すべての mermaid 要素のレンダリングが完了したら、ずれを補正するため
+  // もう一度 anchor 位置に移動する。
+  const mutationCallback = (mutationList: MutationRecord[], observer: MutationObserver) => {
+    const initialHeight = document.documentElement.scrollHeight
+    for (const mutation of mutationList) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-processed') {
+        if (mermaidNodes.every((node) => node.getAttribute('data-processed') === 'true')) {
+          observer.disconnect()
+          // data-processed = true になっても、実際のレンダリングが完了していないことがある。
+          // 一定期間監視して page height が変化しなくなったらレンダリング完了とみなす。
+          let prevHeight = document.documentElement.scrollHeight
+          if (prevHeight === initialHeight) {
+            location.replace(locationHash)
+          }
+          let count = 0
+
+          const id = setInterval(() => {
+            const currentHeight = document.documentElement.scrollHeight
+            if (currentHeight === prevHeight) {
+              count++
+              if (count === 3) {
+                clearInterval(id)
+              }
+            } else {
+              location.replace(locationHash)
+              prevHeight = currentHeight
+              count = 0
+            }
+          }, 50)
+        }
+      }
+    }
+  }
+  const mutationObserver = new MutationObserver(mutationCallback)
+  for (const node of mermaidNodes) {
+    mutationObserver.observe(node, {
+      attributes: true,
+      attributeFilter: ['data-processed'],
+    })
+  }
+  // 一定期間が経過してもレンダリングが完了しない場合は監視を打ち切る
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      mutationObserver.disconnect()
+    }, 10000)
+  })
+})()
