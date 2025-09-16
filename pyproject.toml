@@ -1,7 +1,7 @@
 [project]
 name = "sphinx_shiguredo_theme"
 authors = [{ name = "Shiguredo Inc.", email = "contact+pypi@shiguredo.jp" }]
-version = "2024.1.0"
+version = "2025.1.0"
 description = "Sphinx Shiguredo Theme"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -10,6 +10,7 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 requires-python = ">= 3.11"
 
@@ -19,10 +20,11 @@ Discord = "https://discord.gg/shiguredo"
 
 
 [build-system]
-requires = ["setuptools>=69.2", "wheel~=0.43.0"]
+requires = ["setuptools>=80.9", "wheel>=0.45.1"]
 
 [tool.rye]
-dev-dependencies = ["ruff>=0.5"]
+dev-dependencies = ["ruff", "ty"]
 
 [tool.ruff]
+target-version = "py311"
 line-length = 100
