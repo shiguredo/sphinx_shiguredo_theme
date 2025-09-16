@@ -1,6 +1,6 @@
 [project]
 name = "sphinx_shiguredo_theme"
-authors = [{ name = "Shiguredo Inc.", email = "contact+pypi@shiguredo.jp" }]
+authors = [{ name = "Shiguredo Inc." }]
 version = "2025.1.0"
 description = "Sphinx Shiguredo Theme"
 readme = "README.md"
