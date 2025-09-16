@@ -571,6 +571,7 @@ dl.field-list > dt:after {
           height: 100%;
           width: 100%;
           padding: 0.1rem 1rem;
+          overflow-wrap: break-word;
 
           &:hover {
             color: $active-color;
@@ -633,6 +634,7 @@ dl.field-list > dt:after {
             display: inline-block;
             height: 100%;
             width: 100%;
+            overflow-wrap: break-word;
 
             &:hover {
               color: $active-color;
