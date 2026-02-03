@@ -55,6 +55,59 @@
     });
 })();
 (() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const copyBtn = document.getElementById('copy-page-btn');
+        if (!copyBtn) {
+            return;
+        }
+        const sourceEl = document.getElementById('clean-rst-source');
+        if (!sourceEl) {
+            return;
+        }
+        const rstSource = sourceEl.textContent || '';
+        copyBtn.addEventListener('click', () => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard
+                    .writeText(rstSource)
+                    .then(() => {
+                    showCopied(copyBtn);
+                })
+                    .catch(() => {
+                    fallbackCopy(rstSource, copyBtn);
+                });
+            }
+            else {
+                fallbackCopy(rstSource, copyBtn);
+            }
+        });
+    });
+    function fallbackCopy(text, btn) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showCopied(btn);
+        }
+        catch {
+            // コピー失敗時は何もしない
+        }
+        document.body.removeChild(textarea);
+    }
+    function showCopied(btn) {
+        const original = btn.textContent;
+        btn.textContent = 'コピーしました';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+        }, 2000);
+    }
+})();
+(() => {
     const locationHash = window.location.hash;
     if (locationHash === '') {
         return;

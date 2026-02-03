@@ -391,6 +391,33 @@ dl.field-list > dt:after {
   }
 }
 
+.copy-page-rst {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0 0 0;
+
+  #copy-page-btn {
+    background-color: transparent;
+    color: $shiguredo-color;
+    border: 1px solid $shiguredo-color;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: $shiguredo-color;
+      color: $white;
+    }
+
+    &.copied {
+      background-color: $shiguredo-color;
+      color: $white;
+    }
+  }
+}
+
 .not-found {
   section {
     display: flex;
